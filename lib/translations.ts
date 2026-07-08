@@ -126,14 +126,25 @@ const en = {
     projects: {
       title: "Selected work",
       subtitle:
-        "Highlights from professional projects — ask me about any of them.",
+        "Professional and personal projects — ask me about any of them.",
       items: [
+        {
+          name: "derDictionary 🇩🇪",
+          context: "Personal project · live at derdictionary.de",
+          description:
+            "A web app for German learners: a dictionary of 10,800+ verbs and 58,500+ nouns with smart search (conjugated and inflected forms, umlaut-insensitive, typo-tolerant), AI writing correction and DE ⇄ EN translation, and a der/die/das game with spaced repetition — Supabase database, OpenAI behind rate-limited serverless APIs.",
+          tags: ["React", "Vite", "Supabase", "OpenAI", "Serverless"],
+          link: { url: "https://derdictionary.de", label: "Visit site" },
+          download: null,
+        },
         {
           name: "Multi-client web applications",
           context: "CreaTech · digital agency",
           description:
             "React frontends and Node.js/Express REST APIs delivered for several client projects, with reusable component libraries and a focus on performance and maintainability.",
           tags: ["React", "Node.js", "Express", "REST APIs"],
+          link: null,
+          download: null,
         },
         {
           name: "Documentation validation tool",
@@ -141,20 +152,23 @@ const en = {
           description:
             "An automated tool that validates the structure and semantics of Microdown technical books: missing files, cyclic references and broken anchors — built test-first with Visitor and Strategy patterns.",
           tags: ["Pharo", "TDD", "Design patterns"],
-        },
-        {
-          name: "Staff management app",
-          context: "EOAT / PRHB · construction sector",
-          description:
-            "A frontend application for managing employees, assignments and administrative operations, backed by Java Spring Boot APIs.",
-          tags: ["Frontend", "Java Spring Boot", "REST APIs"],
+          link: null,
+          download: {
+            url: "/pfe-microdown-melki-yasser.pdf",
+            label: "Download documentation (PDF)",
+          },
         },
         {
           name: "This portfolio",
           context: "Personal project",
           description:
-            "The site you're looking at: Next.js App Router, Tailwind CSS, an EN/DE language switch, dark mode and a contact form backed by an API route. The source code is on GitHub.",
+            "The site you're looking at: Next.js App Router, Tailwind CSS, an EN/DE language switch, dark mode and a contact form backed by a rate-limited API route. The source code is on GitHub.",
           tags: ["Next.js", "TypeScript", "Tailwind", "i18n"],
+          link: {
+            url: "https://github.com/melkiyasser/portfolio2026-melki-yasser",
+            label: "View source",
+          },
+          download: null,
         },
       ],
     },
@@ -307,14 +321,25 @@ const de: typeof en = {
     projects: {
       title: "Ausgewählte Projekte",
       subtitle:
-        "Highlights aus beruflichen Projekten — fragen Sie mich gerne dazu.",
+        "Berufliche und private Projekte — fragen Sie mich gerne dazu.",
       items: [
+        {
+          name: "derDictionary 🇩🇪",
+          context: "Privates Projekt · live auf derdictionary.de",
+          description:
+            "Eine Web-App für Deutschlernende: ein Wörterbuch mit über 10.800 Verben und 58.500 Substantiven mit intelligenter Suche (konjugierte und flektierte Formen, umlautunabhängig, fehlertolerant), KI-Textkorrektur und DE ⇄ EN-Übersetzung sowie ein der/die/das-Spiel mit Spaced Repetition — Supabase-Datenbank, OpenAI hinter ratenlimitierten Serverless-APIs.",
+          tags: ["React", "Vite", "Supabase", "OpenAI", "Serverless"],
+          link: { url: "https://derdictionary.de", label: "Website besuchen" },
+          download: null,
+        },
         {
           name: "Webanwendungen für mehrere Kunden",
           context: "CreaTech · Digitalagentur",
           description:
             "React-Frontends und Node.js/Express-REST-APIs für mehrere Kundenprojekte, mit wiederverwendbaren Komponentenbibliotheken und Fokus auf Performance und Wartbarkeit.",
           tags: ["React", "Node.js", "Express", "REST APIs"],
+          link: null,
+          download: null,
         },
         {
           name: "Validierungstool für Dokumentation",
@@ -322,20 +347,23 @@ const de: typeof en = {
           description:
             "Ein automatisiertes Tool, das Struktur und Semantik technischer Microdown-Bücher prüft: fehlende Dateien, zyklische Referenzen und defekte Anker — testgetrieben mit Visitor- und Strategy-Pattern entwickelt.",
           tags: ["Pharo", "TDD", "Design Patterns"],
-        },
-        {
-          name: "Personalverwaltungs-App",
-          context: "EOAT / PRHB · Bausektor",
-          description:
-            "Eine Frontend-Anwendung zur Verwaltung von Mitarbeitern, Einsätzen und administrativen Vorgängen, angebunden an Java-Spring-Boot-APIs.",
-          tags: ["Frontend", "Java Spring Boot", "REST APIs"],
+          link: null,
+          download: {
+            url: "/pfe-microdown-melki-yasser.pdf",
+            label: "Dokumentation herunterladen (PDF)",
+          },
         },
         {
           name: "Dieses Portfolio",
           context: "Privates Projekt",
           description:
-            "Die Seite, die Sie gerade sehen: Next.js App Router, Tailwind CSS, ein EN/DE-Sprachumschalter, Dark Mode und ein Kontaktformular mit eigener API-Route. Der Quellcode ist auf GitHub.",
+            "Die Seite, die Sie gerade sehen: Next.js App Router, Tailwind CSS, ein EN/DE-Sprachumschalter, Dark Mode und ein Kontaktformular mit ratenlimitierter API-Route. Der Quellcode ist auf GitHub.",
           tags: ["Next.js", "TypeScript", "Tailwind", "i18n"],
+          link: {
+            url: "https://github.com/melkiyasser/portfolio2026-melki-yasser",
+            label: "Quellcode ansehen",
+          },
+          download: null,
         },
       ],
     },

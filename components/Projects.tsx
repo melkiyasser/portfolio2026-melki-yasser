@@ -40,6 +40,35 @@ export default function Projects() {
                   </li>
                 ))}
               </ul>
+              {(project.link || project.download) && (
+                <div className="mt-4 flex flex-wrap gap-4 border-t border-slate-100 pt-3 dark:border-slate-800">
+                  {project.link && (
+                    <a
+                      href={project.link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:underline dark:text-teal-400"
+                    >
+                      {project.link.label}
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M7 17 17 7M7 7h10v10" />
+                      </svg>
+                    </a>
+                  )}
+                  {project.download && (
+                    <a
+                      href={project.download.url}
+                      download
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:underline dark:text-teal-400"
+                    >
+                      {project.download.label}
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              )}
             </article>
           ))}
         </div>
