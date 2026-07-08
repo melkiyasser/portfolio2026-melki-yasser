@@ -13,10 +13,28 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://yasser-melki.vercel.app";
+const title = "Yasser Melki — Full-Stack Developer";
+const description =
+  "Full-stack developer (React & Node.js) based in Gelsenkirchen, Germany. Open to junior full-stack and frontend roles.";
+
 export const metadata: Metadata = {
-  title: "Yasser Melki — Full-Stack Developer",
-  description:
-    "Full-stack developer (React & Node.js) based in Gelsenkirchen, Germany. Open to junior full-stack and frontend roles.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: title,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 // Applies the saved theme before first paint to avoid a flash of the wrong theme

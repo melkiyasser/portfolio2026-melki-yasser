@@ -75,10 +75,10 @@ export default function Hero() {
             <pre className="overflow-x-auto p-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
               <code>{`const yasser = {
   role: "Full-Stack Developer",
-  stack: ["React", "Node.js",
+  stack: ["React", "Next.js", "Node.js",
           "TypeScript", "Express"],
   location: "Gelsenkirchen, DE",
-  languages: ["en", "fr", "de*"],
+  languages: ["ar", "en", "fr", "de*"],
   openToWork: true,
 };
 

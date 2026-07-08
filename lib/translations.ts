@@ -27,9 +27,12 @@ const en = {
       ],
       factsTitle: "Quick facts",
       facts: [
-        { label: "Location", value: "Gelsenkirchen, Germany" },
-        { label: "Degree", value: "M.Sc. Information Systems & Web (ESI)" },
+        {
+          label: "Degree",
+          value: "M.Sc. Computer Science — Information Systems & Web",
+        },
         { label: "Experience", value: "~2 years (agency + research)" },
+        { label: "Location", value: "Gelsenkirchen, Germany" },
         { label: "Work permit", value: "Chancenkarte holder" },
       ],
       languagesTitle: "Languages",
@@ -221,9 +224,12 @@ const de: typeof en = {
       ],
       factsTitle: "Auf einen Blick",
       facts: [
-        { label: "Wohnort", value: "Gelsenkirchen, Deutschland" },
-        { label: "Abschluss", value: "M.Sc. Information Systems & Web (ESI)" },
+        {
+          label: "Abschluss",
+          value: "M.Sc. Informatik — Informationssysteme und Web",
+        },
         { label: "Erfahrung", value: "ca. 2 Jahre (Agentur + Forschung)" },
+        { label: "Wohnort", value: "Gelsenkirchen, Deutschland" },
         { label: "Arbeitserlaubnis", value: "Chancenkarte" },
       ],
       languagesTitle: "Sprachen",
