@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>German Grammar Lesson 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf7f2;--card:#ffffff;--ink:#1d1d1f;--muted:#6b6862;--line:#e8e2d8;
+  --accent:#e4572e;--accent-soft:#fde8e1;--blue:#2f6fde;--blue-soft:#e3ecfc;
+  --ok:#1f9d55;--ok-soft:#dff3e7;--bad:#d64545;--bad-soft:#fbe3e3;--gold:#f2b705;
+  --der:#2f6fde;--die:#d64545;--das:#1f9d55;--shadow:0 2px 0 rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#16161a;--card:#202027;--ink:#f1efe9;--muted:#a7a39b;--line:#33323a;
+  --accent:#ff7a52;--accent-soft:#3a2620;--blue:#6d9cff;--blue-soft:#1f2a42;
+  --ok:#3ccf7d;--ok-soft:#1a3326;--bad:#ff6b6b;--bad-soft:#3a1f22;
+  --der:#6d9cff;--die:#ff6b6b;--das:#3ccf7d;--shadow:0 2px 0 rgba(0,0,0,.3);
+}}
+:root[data-theme="dark"]{
+  --bg:#16161a;--card:#202027;--ink:#f1efe9;--muted:#a7a39b;--line:#33323a;
+  --accent:#ff7a52;--accent-soft:#3a2620;--blue:#6d9cff;--blue-soft:#1f2a42;
+  --ok:#3ccf7d;--ok-soft:#1a3326;--bad:#ff6b6b;--bad-soft:#3a1f22;
+  --der:#6d9cff;--die:#ff6b6b;--das:#3ccf7d;--shadow:0 2px 0 rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{padding:36px 0 18px;text-align:center}
+.flag{display:inline-flex;height:8px;width:72px;border-radius:4px;overflow:hidden;margin-bottom:14px}
+.flag i{flex:1}.flag i:nth-child(1){background:#111}.flag i:nth-child(2){background:#dd0000}.flag i:nth-child(3){background:#ffce00}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);font-weight:900;margin:0 0 6px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin:0}
+nav{position:sticky;top:0;z-index:10;background:var(--bg);padding:10px 0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+nav button{font:inherit;font-weight:800;border:2px solid var(--line);background:var(--card);color:var(--ink);padding:9px 18px;border-radius:999px;cursor:pointer}
+nav button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.scorepill{font-weight:800;background:var(--accent-soft);color:var(--accent);padding:9px 14px;border-radius:999px}
+section.tab{display:none;padding-top:22px}section.tab.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:18px;box-shadow:var(--shadow)}
+h2{font-size:1.35rem;font-weight:900;margin:0 0 4px}
+h3{font-size:1.05rem;font-weight:800;margin:18px 0 8px}
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.muted{color:var(--muted)}
+.svo{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.svo div{flex:1;min-width:110px;text-align:center;border-radius:14px;padding:12px 8px;font-weight:800;font-size:1.2rem}
+.svo small{display:block;font-size:.75rem;font-weight:700;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.s{background:var(--blue-soft);color:var(--blue)}.v{background:var(--accent-soft);color:var(--accent)}.o{background:var(--ok-soft);color:var(--ok)}
+table{width:100%;border-collapse:collapse;margin:8px 0}
+td,th{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.end{color:var(--accent);font-weight:900}
+.stem{font-weight:800}
+.tip{background:var(--blue-soft);border-left:4px solid var(--blue);padding:10px 14px;border-radius:10px;margin:12px 0}
+.warn{background:var(--accent-soft);border-left:4px solid var(--accent);padding:10px 14px;border-radius:10px;margin:12px 0}
+.vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.vocab span{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:.95rem}
+.vocab b{display:block}
+.vocab em{font-style:normal;color:var(--muted);font-size:.85rem}
+.g-der{color:var(--der)}.g-die{color:var(--die)}.g-das{color:var(--das)}
+.legend{font-size:.85rem;color:var(--muted);margin-top:8px}
+.ex{font-weight:700}
+.ex .tr{display:block;font-weight:400;color:var(--muted);font-size:.92rem}
+/* exercises */
+.item{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.item:last-child{border-bottom:0}
+.num{width:26px;height:26px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex:none}
+.item input[type=text]{font:inherit;font-weight:700;width:120px;padding:7px 10px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.item input:focus{outline:none;border-color:var(--blue)}
+.hint{font-size:.8rem;font-weight:800;background:var(--bg);border:1px solid var(--line);color:var(--muted);padding:2px 8px;border-radius:999px}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:8px 14px;cursor:pointer;background:var(--ink);color:var(--bg)}
+.btn.ghost{background:var(--bg);color:var(--ink);border:2px solid var(--line)}
+.btn.big{padding:13px 22px;font-size:1.05rem;border-radius:14px;background:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.opt{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:7px 12px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.opt:disabled{cursor:default}
+.fb{flex-basis:100%;font-size:.92rem;padding-left:34px;min-height:0}
+.fb.ok{color:var(--ok)}.fb.no{color:var(--bad)}
+input.right{border-color:var(--ok)!important;background:var(--ok-soft)!important}
+input.wrong{border-color:var(--bad)!important;background:var(--bad-soft)!important}
+.q{flex-basis:100%;font-weight:700;padding-left:34px;margin-top:-30px;padding-top:4px}
+.qwrap{display:flex;flex-direction:column;gap:8px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.qwrap:last-child{border-bottom:0}
+.qhead{display:flex;gap:8px;align-items:flex-start;font-weight:700}
+.opts{display:flex;flex-wrap:wrap;gap:8px;padding-left:34px}
+.build-line{min-height:48px;border:2px dashed var(--line);border-radius:12px;padding:6px;display:flex;flex-wrap:wrap;gap:6px;margin-left:34px}
+.bank{display:flex;flex-wrap:wrap;gap:6px;margin-left:34px}
+.chip{font:inherit;font-weight:800;border:2px solid var(--line);border-bottom-width:4px;background:var(--card);color:var(--ink);border-radius:10px;padding:6px 12px;cursor:pointer}
+.build-line .chip{background:var(--blue-soft);border-color:var(--blue);color:var(--blue)}
+.row-actions{display:flex;gap:8px;margin-left:34px}
+.result{text-align:center;padding:28px 20px}
+.result .big{font-size:3rem;font-weight:900;line-height:1}
+.stars{font-size:2rem;letter-spacing:4px;margin:8px 0}
+.bar{height:10px;background:var(--bg);border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:10px 0 4px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));width:0;transition:width .4s}
+/* flashcards */
+.filters{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:14px}
+.filters button{font:inherit;font-weight:700;font-size:.9rem;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.filters button.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.scene{perspective:1200px;max-width:460px;margin:0 auto;height:260px;cursor:pointer}
+.fc{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.fc.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--card)}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:var(--bg)}
+.face .word{font-size:clamp(1.8rem,7vw,2.6rem);font-weight:900;letter-spacing:-.01em}
+.face .cat{position:absolute;top:14px;left:16px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.face.back .cat{color:inherit;opacity:.6}
+.face .exs{margin-top:12px;font-weight:700;opacity:.85}
+.face .exs small{display:block;font-weight:400;opacity:.8}
+.tap{position:absolute;bottom:12px;font-size:.78rem;color:var(--muted)}
+.fc-nav{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+.counter{font-weight:800;color:var(--muted);min-width:70px;text-align:center}
+.knowbar{display:flex;justify-content:center;gap:10px;margin-top:12px}
+.knowbar .yes{background:var(--ok);color:#fff}.knowbar .no{background:var(--bad);color:#fff}
+.speak{font:inherit;border:0;background:transparent;font-size:1.3rem;cursor:pointer;margin-top:8px;color:inherit}
+.intro-form{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin:10px 0}
+.intro-form input{font:inherit;padding:9px 11px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.intro-out{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:700;min-height:48px}
+.site-footer{border-top:1px solid var(--line);margin-top:10px;padding:28px 16px 36px;text-align:center}
+.site-footer .soon{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:800;padding:8px 16px;border-radius:999px;margin-bottom:14px}
+.site-footer p{margin:4px 0}
+.site-footer .love{font-size:1.05rem}
+.site-footer .heart{color:#e63946;display:inline-block;animation:beat 1.4s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}}
+.site-footer a{color:var(--blue);font-weight:700;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.site-footer .copy{color:var(--muted);font-size:.85rem}
+@media (max-width:520px){.item input[type=text]{width:100px}.fb,.opts,.build-line,.bank,.row-actions{padding-left:0;margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="flag"><i></i><i></i><i></i></div>
+  <div class="kicker">Your first German grammar lesson</div>
+  <h1>Grammar Lesson 1</h1>
+  <p class="sub">Verbs, personal pronouns & your first sentences</p>
+</header>
+
+<nav>
+  <button class="on" data-tab="notes">📒 Notes</button>
+  <button data-tab="practice">✏️ Practice</button>
+  <button data-tab="cards">🃏 Flashcards</button>
+  <span class="scorepill" id="livescore">Score 0 / 0</span>
+</nav>
+
+<!-- ============ NOTES ============ -->
+<section class="tab on" id="notes">
+
+<div class="card">
+  <div class="kicker">Step 1</div>
+  <h2>Your first sentence</h2>
+  <p>A good German sentence can be just <b>subject + verb + object</b>. The verb sits in the middle, just like in English.</p>
+  <div class="svo">
+    <div class="s"><small>Subjekt</small>Ich</div>
+    <div class="v"><small>Verb / Prädikat</small>lerne</div>
+    <div class="o"><small>Objekt</small>Deutsch.</div>
+  </div>
+  <p class="muted" style="margin:0">= I learn German.</p>
+  <div class="tip">Some books say <b>Prädikat</b> instead of <b>Verb</b>. Technically one is a sentence part and one is a function, but for now: it's almost the same thing. Don't stress.</div>
+</div>
+
+<div class="card">
+  <div class="kicker">Step 2</div>
+  <h2>The infinitive: stem + -en</h2>
+  <p>Verbs in the dictionary form (the <b>infinitive</b>) almost all end in <b>-en</b>. Cut off the ending and you have the <b>stem</b>.</p>
+  <table>
+    <tr><th>Infinitive</th><th>Stem</th><th>Ending</th><th>Meaning</th></tr>
+    <tr><td>lernen</td><td class="stem">lern-</td><td class="end">-en</td><td>to learn</td></tr>
+    <tr><td>kommen</td><td class="stem">komm-</td><td class="end">-en</td><td>to come</td></tr>
+    <tr><td>konjugieren</td><td class="stem">konjugier-</td><td class="end">-en</td><td>to conjugate</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <div class="kicker">Step 3</div>
+  <h2>Personal pronouns (Nominativ)</h2>
+  <p>The person doing the action. Today only the first case: <b>Nominativ</b>.</p>
+  <table>
+    <tr><th>German</th><th>English</th></tr>
+    <tr><td><b>ich</b></td><td>I</td></tr>
+    <tr><td><b>du</b></td><td>you (one person, informal)</td></tr>
+    <tr><td><b>er / sie / es</b></td><td>he / she / it</td></tr>
+    <tr><td><b>man</b></td><td>one, people in general</td></tr>
+    <tr><td><b>wir</b></td><td>we</td></tr>
+    <tr><td><b>ihr</b></td><td>you guys (plural, informal)</td></tr>
+    <tr><td><b>sie</b></td><td>they</td></tr>
+    <tr><td><b>Sie</b></td><td>you (polite), always with a capital S</td></tr>
+  </table>
+  <div class="warn"><b>man ≠ the man!</b> <i>Man spricht in Deutschland Deutsch.</i> = One speaks German in Germany. It makes a general statement, nobody specific.</div>
+</div>
+
+<div class="card">
+  <div class="kicker">Step 4 · the most important part</div>
+  <h2>Conjugation: the endings</h2>
+  <p>Take the stem and add the ending that matches the person.</p>
+  <table>
+    <tr><th>Pronoun</th><th>Ending</th><th>lernen</th><th></th></tr>
+    <tr><td>ich</td><td class="end">-e</td><td>lern<span class="end">e</span></td><td class="muted">Ich lerne Deutsch.</td></tr>
+    <tr><td>du</td><td class="end">-st</td><td>lern<span class="end">st</span></td><td class="muted">Don't forget the t!</td></tr>
+    <tr><td>er / sie / es / man</td><td class="end">-t</td><td>lern<span class="end">t</span></td><td class="muted">Er lernt Deutsch.</td></tr>
+    <tr><td>wir</td><td class="end">-en</td><td>lern<span class="end">en</span></td><td class="muted">Wir lernen Deutsch.</td></tr>
+    <tr><td>ihr</td><td class="end">-t</td><td>lern<span class="end">t</span></td><td class="muted">Ihr lernt Deutsch.</td></tr>
+    <tr><td>sie / Sie</td><td class="end">-en</td><td>lern<span class="end">en</span></td><td class="muted">Sie lernen Deutsch.</td></tr>
+  </table>
+  <div class="warn"><b>Watch out for "Sie" at the start of a sentence.</b> Every sentence starts with a capital letter, so <i>Sie</i> can be <b>she, they</b> or <b>polite you</b>. The verb ending helps:<br>
+  <i>Sie kauft Cola.</i> → she buys a Coke (-t)<br>
+  <i>Sie kaufen Cola.</i> → they buy / you (polite) buy a Coke (-en)</div>
+</div>
+
+<div class="card">
+  <div class="kicker">Step 5</div>
+  <h2>Two little words: auch & oder</h2>
+  <h3>auch = also, too</h3>
+  <p class="ex">Er lernt Deutsch. Ich lerne auch Deutsch.<span class="tr">He learns German. I also learn German.</span></p>
+  <p class="ex">Auch ich lerne Deutsch.<span class="tr">Same meaning, but it puts the emphasis on "I".</span></p>
+  <p class="ex">Ich wohne in Berlin. Wohnst du auch in Berlin?<span class="tr">I live in Berlin. Do you live in Berlin too?</span></p>
+  <div class="tip"><b>Handy everyday phrase:</b> "… ist auch okay" = "… is also fine"<br><i>Wasser ist auch okay.</i> Water is also fine.<br><i>Montag ist auch okay.</i> Monday is fine with me too.</div>
+  <h3>oder = or … / right?</h3>
+  <p class="ex">Trinkst du Kaffee oder Tee?<span class="tr">Do you drink coffee or tea? (A or B)</span></p>
+  <p class="ex">Du lernst Deutsch, oder?<span class="tr">You learn German, right? (rhetorical question, "…or not?")</span></p>
+  <p class="ex">Du bist Amerikaner, oder?<span class="tr">You are American, aren't you?</span></p>
+</div>
+
+<div class="card">
+  <div class="kicker">Vocabulary from the lesson</div>
+  <h2>Wörter</h2>
+  <h3>Verbs</h3>
+  <div class="vocab" id="v-verbs"></div>
+  <h3>Nouns & places</h3>
+  <div class="vocab" id="v-nouns"></div>
+  <p class="legend"><span class="g-der"><b>der</b></span> masculine · <span class="g-die"><b>die</b></span> feminine · <span class="g-das"><b>das</b></span> neuter</p>
+  <h3>Little words</h3>
+  <div class="vocab" id="v-small"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Reading</div>
+  <h2>Anna introduces herself</h2>
+  <p class="ex">Hallo, ich heiße Anna. Ich bin 30 Jahre alt. Ich komme aus Deutschland. Ich bin Lehrerin. Wer bist du?
+  <span class="tr">Hello, my name is Anna. I'm 30 years old. I come from Germany. I'm a teacher. Who are you?</span></p>
+  <h3>Your turn: wer bist du?</h3>
+  <div class="intro-form">
+    <input id="in-name" placeholder="Name (e.g. Yasser)">
+    <input id="in-age" placeholder="Age (e.g. 30)" inputmode="numeric">
+    <input id="in-country" placeholder="Country (e.g. Algerien)">
+    <input id="in-job" placeholder="Job (e.g. Lehrer)">
+  </div>
+  <div class="intro-out" id="intro-out">Fill in the boxes and your introduction appears here.</div>
+  <button class="speak" id="intro-speak" title="Listen">🔊 <span style="font-size:.9rem;font-weight:700">Listen</span></button>
+</div>
+
+<div style="text-align:center"><button class="btn big" data-go="practice">Start practising →</button></div>
+</section>
+
+<!-- ============ PRACTICE ============ -->
+<section class="tab" id="practice">
+
+<div class="card">
+  <div class="kicker">Übung 1</div>
+  <h2>Fill in the verb</h2>
+  <p class="muted">Conjugate the verb in brackets. Press Enter or Check. Your first answer counts for the score.</p>
+  <div id="ex-fill"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Übung 2</div>
+  <h2>Which verb fits?</h2>
+  <p class="muted">All options are correctly conjugated. Pick the one that makes sense.</p>
+  <div id="ex-choose"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Übung 3</div>
+  <h2>Pick the ending</h2>
+  <p class="muted">Which ending goes with each pronoun? (stem: lern-)</p>
+  <div id="ex-end"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Übung 4</div>
+  <h2>Build the sentence</h2>
+  <p class="muted">Tap the words in the right order. Tap a word in your line to send it back.</p>
+  <div id="ex-build"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Übung 5</div>
+  <h2>Quick quiz</h2>
+  <p class="muted">auch, oder, man, Sie… the tricky bits.</p>
+  <div id="ex-quiz"></div>
+</div>
+
+<div class="card result" id="result">
+  <div class="kicker">Finished?</div>
+  <h2>See your score</h2>
+  <div class="bar"><i id="resbar"></i></div>
+  <p class="muted" id="resprog">0 of 0 answered</p>
+  <button class="btn big" id="finish">Show my result 🎯</button>
+  <div id="resout" style="display:none">
+    <div class="stars" id="stars"></div>
+    <div class="big" id="respct"></div>
+    <p id="resmsg" style="font-weight:700"></p>
+    <button class="btn ghost" id="retry">↺ Try again</button>
+    <button class="btn" data-go="cards">Review flashcards →</button>
+  </div>
+</div>
+</section>
+
+<!-- ============ FLASHCARDS ============ -->
+<section class="tab" id="cards">
+<div class="filters" id="filters"></div>
+<div class="scene" id="scene">
+  <div class="fc" id="fc">
+    <div class="face front"><span class="cat" id="f-cat"></span><div class="word" id="f-word"></div><button class="speak" id="f-speak" title="Listen">🔊</button><span class="tap">tap to flip</span></div>
+    <div class="face back"><span class="cat">English</span><div class="word" id="b-word" style="font-size:clamp(1.4rem,6vw,2rem)"></div><div class="exs" id="b-ex"></div></div>
+  </div>
+</div>
+<div class="knowbar">
+  <button class="btn no" id="k-no">✗ Again</button>
+  <button class="btn yes" id="k-yes">✓ I know it</button>
+</div>
+<div class="fc-nav">
+  <button class="btn ghost" id="prev">←</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn ghost" id="next">→</button>
+  <button class="btn ghost" id="shuffle">🔀 Shuffle</button>
+</div>
+<p class="muted" style="text-align:center;margin-top:14px" id="known"></p>
+<p class="muted" style="text-align:center;font-size:.85rem">Keyboard: Space = flip · ← → = move</p>
+</section>
+</div>
+
+<footer class="site-footer">
+  <div class="soon">🚀 More lessons coming soon. Lesson 2 is on its way!</div>
+  <p class="love">Made with <span class="heart">❤</span> by <b>Yasser Melki</b></p>
+  <p class="links"><a href="https://yassermelki.de">yassermelki.de</a> · <a href="https://yassermelki.de/germanlessons/lesson1">German Lessons</a></p>
+  <p class="copy">© <span id="yr">2026</span> Yasser Melki</p>
+</footer>
+
+<script>
+document.getElementById("yr").textContent=new Date().getFullYear();
+/* ---------- data ---------- */
+const VERBS=[
+ ["wohnen","to live, to reside","Ich wohne in Berlin.","I live in Berlin."],
+ ["leben","to live","Kiku lebt in Japan.","Kiku lives in Japan."],
+ ["gehen","to go","Wir gehen.","We go."],
+ ["kommen","to come","Ich komme aus Deutschland.","I come from Germany."],
+ ["hören","to hear, to listen","Er hört Musik.","He listens to music."],
+ ["machen","to do, to make","Sie machen Sport.","They do sport."],
+ ["kaufen","to buy","Er kauft Blumen.","He buys flowers."],
+ ["trinken","to drink","Du trinkst Saft.","You drink juice."],
+ ["lernen","to learn","Ich lerne Deutsch.","I learn German."],
+ ["studieren","to study (at university)","Du studierst Deutsch.","You study German."],
+ ["fragen","to ask","Ihr fragt José.","You guys ask José."],
+ ["heißen","to be called","Ich heiße Anna.","My name is Anna."],
+ ["schreiben","to write","Ich schreibe.","I write."],
+ ["konjugieren","to conjugate","Wir konjugieren Verben.","We conjugate verbs."]
+];
+const NOUNS=[
+ ["","Deutschland","Germany","Ich komme aus Deutschland."],
+ ["","Deutsch","German (the language)","Ich lerne Deutsch."],
+ ["","Japan","Japan","Kiku kommt aus Japan."],
+ ["","Berlin","Berlin","José wohnt in Berlin."],
+ ["die","Cola","cola, Coke","Sie kauft Cola."],
+ ["der","Saft","juice","Du trinkst Saft."],
+ ["das","Bier","beer","Wir trinken Bier."],
+ ["das","Buch","book (pl. die Bücher)","Wir kaufen Bücher."],
+ ["die","Musik","music","Er hört Musik."],
+ ["die","Blume","flower (pl. die Blumen)","Er kauft Blumen."],
+ ["der","Kaffee","coffee","Ich trinke Kaffee."],
+ ["der","Tee","tea","Trinkst du Kaffee oder Tee?"],
+ ["das","Wasser","water","Wasser ist auch okay."],
+ ["der","Sport","sport(s)","Sie machen Sport."],
+ ["der","Montag","Monday","Montag ist auch okay."],
+ ["die","Lehrerin","teacher (female)","Ich bin Lehrerin."]
+];
+const SMALL=[
+ ["auch","also, too","Ich lerne auch Deutsch.","I also learn German."],
+ ["oder","or / …, right?","Du lernst Deutsch, oder?","You learn German, right?"],
+ ["und","and","Aisha und Petra kommen aus Berlin.","Aisha and Petra are from Berlin."],
+ ["aus","from","Ich komme aus Japan.","I come from Japan."],
+ ["in","in","Ich wohne in Berlin.","I live in Berlin."],
+ ["wer?","who?","Wer bist du?","Who are you?"]
+];
+const PRON=[
+ ["ich","I"],["du","you (informal)"],["er","he"],["sie","she"],["es","it"],["man","one, people in general"],
+ ["wir","we"],["ihr","you guys"],["sie (plural)","they"],["Sie","you (polite)"]
+];
+const PHRASES=[
+ ["Wasser ist auch okay.","Water is also fine."],
+ ["Montag ist auch okay.","Monday is also fine (with me)."],
+ ["Du lernst Deutsch, oder?","You learn German, right?"],
+ ["Ich bin 30 Jahre alt.","I am 30 years old."],
+ ["Wer bist du?","Who are you?"],
+ ["Man spricht in Deutschland Deutsch.","One speaks German in Germany."]
+];
+
+/* ---------- vocab boxes in notes ---------- */
+const $=s=>document.querySelector(s);
+$("#v-verbs").innerHTML=VERBS.map(v=>`<span><b>${v[0]}</b><em>${v[1]}</em></span>`).join("");
+$("#v-nouns").innerHTML=NOUNS.map(n=>`<span><b class="${n[0]?'g-'+n[0]:''}">${n[0]?n[0]+' ':''}${n[1]}</b><em>${n[2]}</em></span>`).join("");
+$("#v-small").innerHTML=SMALL.map(v=>`<span><b>${v[0]}</b><em>${v[1]}</em></span>`).join("");
+
+/* ---------- speech ---------- */
+function speak(t){try{const u=new SpeechSynthesisUtterance(t);u.lang="de-DE";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+
+/* ---------- tabs ---------- */
+function go(id){document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===id));
+ document.querySelectorAll("section.tab").forEach(s=>s.classList.toggle("on",s.id===id));window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>go(b.dataset.tab));
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+
+/* ---------- intro builder ---------- */
+function intro(){const n=$("#in-name").value.trim(),a=$("#in-age").value.trim(),c=$("#in-country").value.trim(),j=$("#in-job").value.trim();
+ const s=[];if(n)s.push(`Hallo, ich heiße ${n}.`);if(a)s.push(`Ich bin ${a} Jahre alt.`);if(c)s.push(`Ich komme aus ${c}.`);if(j)s.push(`Ich bin ${j}.`);
+ $("#intro-out").textContent=s.length?s.join(" "):"Fill in the boxes and your introduction appears here.";}
+["#in-name","#in-age","#in-country","#in-job"].forEach(i=>$(i).oninput=intro);
+$("#intro-speak").onclick=()=>{const t=$("#intro-out").textContent;if(!t.startsWith("Fill"))speak(t)};
+
+/* ---------- exercises ---------- */
+const FILL=[
+ {b:"Ich",a:"aus Deutschland.",inf:"kommen",ans:["komme"],en:"I come from Germany."},
+ {b:"Kiku",a:"aus Japan.",inf:"kommen",ans:["kommt"],en:"Kiku comes from Japan."},
+ {b:"Aisha und Petra",a:"aus Berlin.",inf:"kommen",ans:["kommen"],en:"Aisha and Petra are from Berlin."},
+ {b:"Sie",a:"Cola.",inf:"kaufen",ans:["kauft","kaufen"],en:"Both work! kauft = she buys · kaufen = they / you (polite) buy."},
+ {b:"Er",a:"Blumen.",inf:"kaufen",ans:["kauft"],en:"He buys flowers."},
+ {b:"Wir",a:"Bücher.",inf:"kaufen",ans:["kaufen"],en:"We buy books."},
+ {b:"Ich",a:"in Berlin.",inf:"wohnen",ans:["wohne"],en:"I live in Berlin."},
+ {b:"José",a:"auch in Berlin.",inf:"wohnen",ans:["wohnt"],en:"José also lives in Berlin."},
+ {b:"Wir",a:"Bier.",inf:"trinken",ans:["trinken"],en:"We drink beer."},
+ {b:"Ich",a:"Kaffee.",inf:"trinken",ans:["trinke"],en:"I drink coffee."},
+ {b:"Du",a:"Saft.",inf:"trinken",ans:["trinkst"],en:"You drink juice. Don't forget the t!"},
+ {b:"Ihr",a:"Deutsch.",inf:"lernen",ans:["lernt"],en:"You guys learn German."}
+];
+const CHOOSE=[
+ {b:"Kiku",a:"in Japan.",o:["lebt","hört","fragt"],c:0,en:"Kiku lives in Japan."},
+ {b:"Wir",a:"Bier.",o:["wohnen","kaufen","studieren"],c:1,en:"We buy beer."},
+ {b:"Ich",a:"Anna.",o:["lerne","trinke","heiße"],c:2,en:"My name is Anna."},
+ {b:"Aisha und Petra",a:"Sport.",o:["machen","trinken","wohnen"],c:0,en:"Aisha and Petra do sport."},
+ {b:"Du",a:"Deutsch.",o:["trinkst","studierst","wohnst"],c:1,en:"You study German."},
+ {b:"Er",a:"Musik.",o:["kauft","wohnt","hört"],c:2,en:"He listens to music."},
+ {b:"Ihr",a:"José.",o:["fragt","trinkt","lebt"],c:0,en:"You guys ask José."},
+ {b:"Sie",a:"Deutsch.",o:["wohnen","lernen","trinken"],c:1,en:"They learn German / You (polite) learn German."}
+];
+const ENDS=[["ich","-e"],["du","-st"],["er / sie / es / man","-t"],["wir","-en"],["ihr","-t"],["sie / Sie","-en"]];
+const ENDOPTS=["-e","-st","-t","-en"];
+const BUILD=[
+ {w:["Ich","lerne","Deutsch."],alt:[],en:"I learn German."},
+ {w:["Wohnst","du","auch","in","Berlin?"],alt:[["Wohnst","auch","du","in","Berlin?"]],en:"Do you live in Berlin too?"},
+ {w:["Trinkst","du","Kaffee","oder","Tee?"],alt:[],en:"Do you drink coffee or tea?"},
+ {w:["Du","lernst","Deutsch,","oder?"],alt:[],en:"You learn German, right?"},
+ {w:["Montag","ist","auch","okay."],alt:[],en:"Monday is also fine."},
+ {w:["Er","kauft","Blumen."],alt:[],en:"He buys flowers."}
+];
+const QUIZ=[
+ {q:"„Du bist Amerikaner, oder?“ means…",o:["You are American, aren't you?","Are you American or German?","You are not American."],c:0,en:"oder at the end = a rhetorical question, like “right?”"},
+ {q:"„Man spricht in Deutschland Deutsch.“ What is „man“?",o:["a man","one / people in general","the man"],c:1,en:"man = a general statement. Not the English word “man”!"},
+ {q:"„Sie kauft Cola.“ Who buys the Coke?",o:["she","they","you (polite)"],c:0,en:"The -t ending shows it's she. They / polite you would be „kaufen“."},
+ {q:"„Wasser ist auch okay.“ means…",o:["Water is okay too.","Water or okay?","I drink water."],c:0,en:"„… ist auch okay“ = “… is also fine”."},
+ {q:"Which pronoun means “you guys” (plural, informal)?",o:["du","Sie","ihr"],c:2,en:"ihr = you (plural). Ihr lernt Deutsch."},
+ {q:"How do almost all infinitives end?",o:["-st","-en","-t"],c:1,en:"lern-en, komm-en, kauf-en… cut off -en to get the stem."},
+ {q:"„Er lernt Deutsch. Ich lerne ___ Deutsch.“",o:["oder","und","auch"],c:2,en:"auch = also / too."},
+ {q:"„Trinkst du Kaffee ___ Tee?“",o:["oder","auch","man"],c:0,en:"oder = or (A or B)."}
+];
+
+let results={},TOTAL=0;
+const norm=s=>s.trim().toLowerCase().replace(/\s+/g," ");
+function record(id,ok){if(!(id in results)){results[id]=ok;updateScore()}}
+function updateScore(){const answered=Object.keys(results).length,right=Object.values(results).filter(Boolean).length;
+ $("#livescore").textContent=`Score ${right} / ${TOTAL}`;
+ $("#resbar").style.width=(TOTAL?answered/TOTAL*100:0)+"%";
+ $("#resprog").textContent=`${answered} of ${TOTAL} answered`;}
+const n=i=>`<span class="num">${i+1}</span>`;
+
+function renderAll(){
+ results={};TOTAL=FILL.length+CHOOSE.length+ENDS.length+BUILD.length+QUIZ.length;
+ // fill
+ $("#ex-fill").innerHTML=FILL.map((x,i)=>`<div class="item" data-i="${i}">${n(i)}<span>${x.b}</span><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false"><span>${x.a}</span><span class="hint">${x.inf}</span><button class="btn">Check</button><div class="fb"></div></div>`).join("");
+ $("#ex-fill").querySelectorAll(".item").forEach(el=>{
+  const i=+el.dataset.i,x=FILL[i],inp=el.querySelector("input"),btn=el.querySelector("button"),fb=el.querySelector(".fb");
+  const check=()=>{if(!inp.value.trim()){inp.focus();return}
+   const ok=x.ans.includes(norm(inp.value));record("f"+i,ok);inp.disabled=btn.disabled=true;inp.classList.add(ok?"right":"wrong");
+   fb.className="fb "+(ok?"ok":"no");fb.innerHTML=(ok?"✓ Richtig! ":`✗ Correct: <b>${x.ans.join(" / ")}</b>. `)+x.en;
+   const nx=el.nextElementSibling?.querySelector("input");if(nx)nx.focus();};
+  btn.onclick=check;inp.onkeydown=e=>{if(e.key==="Enter")check()};});
+ // choose
+ $("#ex-choose").innerHTML=CHOOSE.map((x,i)=>`<div class="item" data-i="${i}">${n(i)}<span>${x.b}</span><span class="hint">___</span><span>${x.a}</span><div class="opts" style="flex-basis:100%">${x.o.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join("")}</div><div class="fb"></div></div>`).join("");
+ $("#ex-choose").querySelectorAll(".item").forEach(el=>{const i=+el.dataset.i,x=CHOOSE[i];mcq(el,x.c,"c"+i,x.en,()=>{el.querySelector(".hint").textContent=x.o[x.c]})});
+ // endings
+ $("#ex-end").innerHTML=ENDS.map((x,i)=>`<div class="item" data-i="${i}">${n(i)}<b style="min-width:150px">${x[0]}</b><span>lern<span class="end">___</span></span><div class="opts" style="padding-left:0">${ENDOPTS.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join("")}</div><div class="fb"></div></div>`).join("");
+ $("#ex-end").querySelectorAll(".item").forEach(el=>{const i=+el.dataset.i,x=ENDS[i];
+  mcq(el,ENDOPTS.indexOf(x[1]),"e"+i,`${x[0]} lern${x[1].slice(1)}`,()=>{el.querySelector(".end").textContent=x[1].slice(1)})});
+ // build
+ $("#ex-build").innerHTML=BUILD.map((x,i)=>`<div class="qwrap" data-i="${i}"><div class="qhead">${n(i)}<span class="muted" style="font-weight:600">${x.en}</span></div><div class="build-line"></div><div class="bank"></div><div class="row-actions"><button class="btn">Check</button><button class="btn ghost">Reset</button></div><div class="fb"></div></div>`).join("");
+ $("#ex-build").querySelectorAll(".qwrap").forEach(el=>buildItem(el,BUILD[+el.dataset.i],+el.dataset.i));
+ // quiz
+ $("#ex-quiz").innerHTML=QUIZ.map((x,i)=>`<div class="qwrap" data-i="${i}"><div class="qhead">${n(i)}<span>${x.q}</span></div><div class="opts">${x.o.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join("")}</div><div class="fb"></div></div>`).join("");
+ $("#ex-quiz").querySelectorAll(".qwrap").forEach(el=>{const i=+el.dataset.i,x=QUIZ[i];mcq(el,x.c,"q"+i,x.en)});
+ $("#resout").style.display="none";$("#finish").style.display="";
+ updateScore();
+}
+function mcq(el,c,id,en,after){const bs=el.querySelectorAll(".opt"),fb=el.querySelector(".fb");
+ bs.forEach(b=>b.onclick=()=>{const j=+b.dataset.j,ok=j===c;record(id,ok);
+  bs.forEach(x=>{x.disabled=true;if(+x.dataset.j===c)x.classList.add("right")});if(!ok)b.classList.add("wrong");
+  fb.className="fb "+(ok?"ok":"no");fb.innerHTML=(ok?"✓ Richtig! ":"✗ Not quite. ")+en;if(after)after();});}
+function shuffleArr(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function buildItem(el,x,i){const line=el.querySelector(".build-line"),bank=el.querySelector(".bank"),[chk,rst]=el.querySelectorAll(".row-actions button"),fb=el.querySelector(".fb");
+ let words=shuffleArr(x.w);if(words.join()===x.w.join()&&words.length>1)words.push(words.shift());
+ const draw=()=>{bank.innerHTML="";line.innerHTML="";words.forEach((w,k)=>{const b=document.createElement("button");b.className="chip";b.textContent=w;b.dataset.k=k;b.onclick=()=>{if(chk.disabled)return;(b.parentElement===bank?line:bank).appendChild(b)};bank.appendChild(b)})};
+ draw();rst.onclick=()=>{if(!chk.disabled)draw()};
+ chk.onclick=()=>{const got=[...line.children].map(c=>c.textContent);if(got.length<x.w.length){fb.className="fb no";fb.textContent="Use all the words first.";return}
+  const ok=[x.w,...x.alt].some(s=>s.join(" ")===got.join(" "));record("b"+i,ok);chk.disabled=rst.disabled=true;
+  line.style.borderColor=ok?"var(--ok)":"var(--bad)";line.style.borderStyle="solid";
+  fb.className="fb "+(ok?"ok":"no");fb.innerHTML=(ok?"✓ Richtig! ":`✗ Correct: <b>${x.w.join(" ")}</b>`)+` <button class="speak" style="font-size:1rem;margin:0">🔊</button>`;
+  fb.querySelector(".speak").onclick=()=>speak(x.w.join(" "));};}
+$("#finish").onclick=()=>{const answered=Object.keys(results).length,right=Object.values(results).filter(Boolean).length,pct=Math.round(right/TOTAL*100);
+ $("#respct").textContent=`${right} / ${TOTAL} · ${pct}%`;
+ const st=pct>=90?3:pct>=70?2:pct>=40?1:0;$("#stars").textContent="★".repeat(st)+"☆".repeat(3-st);$("#stars").style.color="var(--gold)";
+ $("#resmsg").textContent=(answered<TOTAL?`You skipped ${TOTAL-answered} question(s). `:"")+(pct>=90?"Ausgezeichnet! You've got this lesson down.":pct>=70?"Sehr gut! Review the ones you missed and try again.":pct>=40?"Gut gemacht! Go back to the conjugation table, then retry.":"Kein Problem! Read the notes once more and give it another go.");
+ $("#resout").style.display="block";$("#finish").style.display="none";};
+$("#retry").onclick=()=>{renderAll();window.scrollTo({top:0,behavior:"smooth"})};
+renderAll();
+
+/* ---------- flashcards ---------- */
+const DECK=[
+ ...VERBS.map(v=>({cat:"Verbs",de:v[0],en:v[1],ex:v[2],exen:v[3]})),
+ ...NOUNS.map(x=>({cat:"Nouns",de:(x[0]?x[0]+" ":"")+x[1],g:x[0],en:x[2],ex:x[3]})),
+ ...SMALL.map(v=>({cat:"Little words",de:v[0],en:v[1],ex:v[2],exen:v[3]})),
+ ...PRON.map(p=>({cat:"Pronouns",de:p[0],en:p[1]})),
+ ...PHRASES.map(p=>({cat:"Phrases",de:p[0],en:p[1]}))
+];
+const CATS=["All","Verbs","Nouns","Little words","Pronouns","Phrases"];
+let cat="All",deck=DECK.slice(),idx=0;const known=new Set();
+$("#filters").innerHTML=CATS.map(c=>`<button class="${c==="All"?"on":""}" data-c="${c}">${c}</button>`).join("");
+$("#filters").querySelectorAll("button").forEach(b=>b.onclick=()=>{cat=b.dataset.c;$("#filters").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));deck=DECK.filter(d=>cat==="All"||d.cat===cat);idx=0;show()});
+function show(){const d=deck[idx];$("#fc").classList.remove("flipped");
+ setTimeout(()=>{$("#f-cat").textContent=d.cat;const w=$("#f-word");w.textContent=d.de;w.className="word"+(d.g?" g-"+d.g:"");
+  $("#b-word").textContent=d.en;$("#b-ex").innerHTML=d.ex?`${d.ex}${d.exen?`<small>${d.exen}</small>`:""}`:"";},120);
+ $("#counter").textContent=`${idx+1} / ${deck.length}`;
+ const k=deck.filter(c=>known.has(c.de)).length;$("#known").textContent=`✓ You know ${k} of ${deck.length} cards`;}
+const flip=()=>$("#fc").classList.toggle("flipped");
+$("#scene").onclick=e=>{if(!e.target.closest(".speak"))flip()};
+$("#f-speak").onclick=e=>{e.stopPropagation();speak(deck[idx].de)};
+$("#next").onclick=()=>{idx=(idx+1)%deck.length;show()};
+$("#prev").onclick=()=>{idx=(idx-1+deck.length)%deck.length;show()};
+$("#shuffle").onclick=()=>{deck=shuffleArr(deck);idx=0;show()};
+$("#k-yes").onclick=()=>{known.add(deck[idx].de);idx=(idx+1)%deck.length;show()};
+$("#k-no").onclick=()=>{known.delete(deck[idx].de);const c=deck.splice(idx,1)[0];deck.splice(Math.min(idx+3,deck.length),0,c);if(idx>=deck.length)idx=0;show()};
+document.addEventListener("keydown",e=>{if(!$("#cards").classList.contains("on")||e.target.tagName==="INPUT")return;
+ if(e.key===" "){e.preventDefault();flip()}else if(e.key==="ArrowRight")$("#next").click();else if(e.key==="ArrowLeft")$("#prev").click();});
+show();
+</script>
+</body>
+</html>
