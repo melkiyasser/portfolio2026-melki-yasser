@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>German Lessons · Yasser Melki</title>
+<meta name="description" content="Free interactive German lessons with notes, exercises and flashcards. Your scores are saved on your device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/germanlessons/gl.css">
+<script src="/germanlessons/lessons.js"></script>
+<style>
+:root{
+  --bg:#faf7f2;--card:#ffffff;--ink:#1d1d1f;--muted:#6b6862;--line:#e8e2d8;
+  --accent:#e4572e;--accent-soft:#fde8e1;--blue:#2f6fde;--blue-soft:#e3ecfc;
+  --ok:#1f9d55;--ok-soft:#dff3e7;--bad:#d64545;--bad-soft:#fbe3e3;--gold:#f2b705;
+  --shadow:0 2px 0 rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16161a;--card:#202027;--ink:#f1efe9;--muted:#a7a39b;--line:#33323a;
+  --accent:#ff7a52;--accent-soft:#3a2620;--blue:#6d9cff;--blue-soft:#1f2a42;
+  --ok:#3ccf7d;--ok-soft:#1a3326;--bad:#ff6b6b;--bad-soft:#3a1f22;--shadow:0 2px 0 rgba(0,0,0,.3);
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header{padding:30px 0 18px;text-align:center}
+.flag{display:inline-flex;height:8px;width:72px;border-radius:4px;overflow:hidden;margin-bottom:14px}
+.flag i{flex:1}.flag i:nth-child(1){background:#111}.flag i:nth-child(2){background:#dd0000}.flag i:nth-child(3){background:#ffce00}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);font-weight:900;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:1.35rem;font-weight:900;margin:0 0 4px}
+h3{font-size:1.05rem;font-weight:800;margin:18px 0 8px}
+.sub{color:var(--muted);margin:0}
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:18px;box-shadow:var(--shadow)}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:8px 14px;cursor:pointer;background:var(--ink);color:var(--bg);text-decoration:none;display:inline-block}
+.btn.ghost{background:var(--bg);color:var(--ink);border:2px solid var(--line)}
+.btn.go{background:var(--accent);color:#fff;padding:10px 18px;border-radius:12px}
+.section-h{display:flex;align-items:baseline;gap:10px;margin:28px 0 12px}
+.section-h h2{margin:0}
+.level{background:var(--ink);color:var(--bg);font-weight:900;border-radius:10px;padding:2px 12px}
+.lessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.lcard{margin:0;display:flex;flex-direction:column;gap:8px}
+.lcard h2{font-size:1.15rem}
+.lcard p{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 10px;font-size:.8rem;font-weight:700}
+.vocab-line{font-size:.85rem;color:var(--muted);font-weight:700}
+.lstatus{margin-top:auto;padding-top:6px}
+.lstatus .row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-weight:800;font-size:.9rem;margin-bottom:6px}
+.soon{border-style:dashed;box-shadow:none;background:transparent;align-items:center;justify-content:center;text-align:center;color:var(--muted)}
+.vrow{margin:10px 0}
+.vrow .row{display:flex;justify-content:space-between;font-weight:800;margin-bottom:4px}
+.vrow .gl-bar{height:12px}
+.site-footer{border-top:1px solid var(--line);margin-top:10px;padding:28px 16px 36px;text-align:center}
+.site-footer p{margin:4px 0}
+.site-footer .love{font-size:1.05rem}
+.site-footer .heart{color:#e63946;display:inline-block;animation:beat 1.4s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}}
+.site-footer a{color:var(--blue);font-weight:700;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.site-footer .copy{color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="flag"><i></i><i></i><i></i></div>
+  <div class="kicker">Learn German step by step</div>
+  <h1>German Lessons</h1>
+  <p class="sub">Notes, exercises and flashcards. Pick a lesson and track your progress.</p>
+</header>
+
+<div class="gl-note">💾 <b>Saved on this device only.</b> Your scores and progress are stored in this browser (local storage). They don't sync to other phones or computers, and clearing your browser data or using a private window removes them.</div>
+
+<!-- progress dashboard -->
+<div class="card" id="dash"></div>
+
+<!-- lessons by level -->
+<div id="levels"></div>
+
+<!-- score history across all lessons -->
+<div class="section-h"><h2>📊 My score history</h2></div>
+<div id="history"></div>
+</div>
+
+<footer class="site-footer">
+  <p class="love">Made with <span class="heart">❤</span> by <b>Yasser Melki</b></p>
+  <p class="links"><a href="https://yasser-melki.de">yasser-melki.de</a> · <a href="/germanlessons">German Lessons</a></p>
+  <p class="copy">© <span id="yr">2026</span> Yasser Melki</p>
+</footer>
+
+<script>
+document.getElementById("yr").textContent=new Date().getFullYear();
+const $=s=>document.querySelector(s);
+const plural=(n,w)=>`${n} ${w}`;
+
+function renderDash(){
+  const s=GL.summary();
+  const vrows=s.vocab.map(v=>{
+    const p=v.total?Math.round(v.learned/v.total*100):0;
+    return `<div class="vrow"><div class="row"><span>${v.label}</span><span>${v.total?`${v.learned} / ${v.total}`:"–"}</span></div><div class="gl-bar"><i style="width:${p}%"></i></div></div>`;
+  }).join("");
+  const lp=s.lessons?Math.round(s.practised/s.lessons*100):0;
+  const words=s.vocab.reduce((a,v)=>a+v.learned,0);
+  $("#dash").innerHTML=`
+    <div class="kicker">My progress</div>
+    <h2>Your learning at a glance</h2>
+    <div class="gl-sum">
+      <div class="gl-stat"><b>${s.practised} / ${s.lessons}</b><small>Lessons practised</small></div>
+      <div class="gl-stat"><b>${s.practised?s.avgBest+"%":"–"}</b><small>Avg. best score</small></div>
+      <div class="gl-stat"><b>${s.attempts}</b><small>Attempts</small></div>
+      <div class="gl-stat"><b>${words}</b><small>Words met</small></div>
+    </div>
+    <div class="vrow"><div class="row"><span>Course progress</span><span>${lp}%</span></div><div class="gl-bar"><i style="width:${lp}%"></i></div></div>
+    <h3>New vocabulary</h3>
+    ${vrows}
+    <p class="muted" style="font-size:.85rem;margin:8px 0 0">A lesson's words are counted once you've practised that lesson.</p>`;
+}
+
+function renderLevels(){
+  const html=GL.LEVELS.map(L=>{
+    const items=GL.LESSONS.filter(x=>x.level===L.id);
+    if(!items.length)return "";
+    const cards=items.map(x=>{
+      const st=GL.stats(x.id);
+      const vl=GL.CATS.map(c=>{const n=(x.vocab[c[0]]||[]).length;return n?`${n} ${c[1].toLowerCase()}`:""}).filter(Boolean).join(" · ");
+      const status=st.count
+        ? `<div class="lstatus"><div class="row"><span>${GL.starsHTML(st.best)} Best ${st.best}%</span><span class="muted">${plural(st.count,st.count>1?"attempts":"attempt")} · ${GL.esc(GL.fmtDate(st.lastAt))}</span></div><div class="gl-bar"><i style="width:${st.best}%"></i></div></div>`
+        : `<div class="lstatus muted" style="font-weight:700;font-size:.9rem">Not started yet</div>`;
+      return `<div class="card lcard">
+        <div class="kicker">Lesson ${GL.esc(x.id.replace(/\D/g,""))}</div>
+        <h2>${GL.esc(x.title)}</h2>
+        <p class="muted">${GL.esc(x.desc)}</p>
+        <div class="chips">${x.topics.map(t=>`<span>${GL.esc(t)}</span>`).join("")}</div>
+        <div class="vocab-line">📚 ${vl||"No new words"}</div>
+        ${status}
+        <div><a class="btn go" href="/germanlessons/${GL.esc(x.id)}">${st.count?"Practise again →":"Start lesson →"}</a></div>
+      </div>`;
+    }).join("");
+    return `<div class="section-h"><span class="level">${L.id}</span><h2>${L.name}</h2></div>
+      <div class="lessons">${cards}<div class="card lcard soon"><div style="font-size:1.6rem">🚧</div><b>More lessons coming soon</b></div></div>`;
+  }).join("");
+  $("#levels").innerHTML=html;
+}
+
+function renderAll(){
+  renderDash();renderLevels();
+  GL.renderHistory($("#history"),null,{titles:true,onClear:renderAll});
+}
+renderAll();
+</script>
+</body>
+</html>

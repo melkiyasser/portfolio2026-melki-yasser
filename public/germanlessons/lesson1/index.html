@@ -6,6 +6,8 @@
 <title>German Grammar Lesson 1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/germanlessons/gl.css">
+<script src="/germanlessons/lessons.js"></script>
 <style>
 :root{
   --bg:#faf7f2;--card:#ffffff;--ink:#1d1d1f;--muted:#6b6862;--line:#e8e2d8;
@@ -134,6 +136,7 @@ input.wrong{border-color:var(--bad)!important;background:var(--bad-soft)!importa
 </head>
 <body>
 <div class="wrap">
+<a class="gl-back" href="/germanlessons">← All lessons</a>
 <header>
   <div class="flag"><i></i><i></i><i></i></div>
   <div class="kicker">Your first German grammar lesson</div>
@@ -145,7 +148,9 @@ input.wrong{border-color:var(--bad)!important;background:var(--bad-soft)!importa
   <button class="on" data-tab="notes">📒 Notes</button>
   <button data-tab="practice">✏️ Practice</button>
   <button data-tab="cards">🃏 Flashcards</button>
+  <button data-tab="history">📊 My progress</button>
   <span class="scorepill" id="livescore">Score 0 / 0</span>
+  <span class="scorepill gl-pill" id="bestpill" role="button" tabindex="0" title="Open my progress"></span>
 </nav>
 
 <!-- ============ NOTES ============ -->
@@ -301,6 +306,7 @@ input.wrong{border-color:var(--bad)!important;background:var(--bad-soft)!importa
   <div class="bar"><i id="resbar"></i></div>
   <p class="muted" id="resprog">0 of 0 answered</p>
   <button class="btn big" id="finish">Show my result 🎯</button>
+  <p class="muted" id="savednote" style="font-size:.9rem"></p>
   <div id="resout" style="display:none">
     <div class="stars" id="stars"></div>
     <div class="big" id="respct"></div>
@@ -310,6 +316,9 @@ input.wrong{border-color:var(--bad)!important;background:var(--bad-soft)!importa
   </div>
 </div>
 </section>
+
+<!-- ============ MY PROGRESS ============ -->
+<section class="tab" id="history"><div id="gl-history"></div></section>
 
 <!-- ============ FLASHCARDS ============ -->
 <section class="tab" id="cards">
@@ -338,7 +347,7 @@ input.wrong{border-color:var(--bad)!important;background:var(--bad-soft)!importa
 <footer class="site-footer">
   <div class="soon">🚀 More lessons coming soon. Lesson 2 is on its way!</div>
   <p class="love">Made with <span class="heart">❤</span> by <b>Yasser Melki</b></p>
-  <p class="links"><a href="https://yassermelki.de">yassermelki.de</a> · <a href="https://yassermelki.de/germanlessons/lesson1">German Lessons</a></p>
+  <p class="links"><a href="https://yasser-melki.de">yasser-melki.de</a> · <a href="/germanlessons">German Lessons</a></p>
   <p class="copy">© <span id="yr">2026</span> Yasser Melki</p>
 </footer>
 
@@ -411,7 +420,7 @@ function speak(t){try{const u=new SpeechSynthesisUtterance(t);u.lang="de-DE";u.r
 
 /* ---------- tabs ---------- */
 function go(id){document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===id));
- document.querySelectorAll("section.tab").forEach(s=>s.classList.toggle("on",s.id===id));window.scrollTo({top:0,behavior:"smooth"})}
+ document.querySelectorAll("section.tab").forEach(s=>s.classList.toggle("on",s.id===id));window.scrollTo({top:0,behavior:"smooth"});if(id==="history")GL.renderHistory($("#gl-history"),["lesson1"],{onClear:refreshBest})}
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>go(b.dataset.tab));
 document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
 
@@ -468,9 +477,18 @@ const QUIZ=[
  {q:"„Trinkst du Kaffee ___ Tee?“",o:["oder","auch","man"],c:0,en:"oder = or (A or B)."}
 ];
 
-let results={},TOTAL=0;
+let results={},TOTAL=0,saved=false;
 const norm=s=>s.trim().toLowerCase().replace(/\s+/g," ");
-function record(id,ok){if(!(id in results)){results[id]=ok;updateScore()}}
+function record(id,ok){if(!(id in results)){results[id]=ok;updateScore();if(Object.keys(results).length===TOTAL)persist()}}
+/* save this attempt on the device (once per attempt) */
+function persist(){if(saved||!Object.keys(results).length)return;
+ const totals={f:FILL.length,c:CHOOSE.length,e:ENDS.length,b:BUILD.length,q:QUIZ.length},parts={};
+ for(const k in totals)parts[k]=[0,totals[k]];
+ for(const id in results)if(results[id])parts[id[0]][0]++;
+ const r=GL.saveAttempt("lesson1",parts);saved=true;refreshBest();
+ $("#savednote").textContent=r.ok?"💾 Result saved on this device. See “My progress”.":"⚠️ Couldn't save (browser storage is blocked).";}
+function refreshBest(){const s=GL.stats("lesson1");$("#bestpill").textContent=s.count?`Best ${s.best}% · ${s.count}×`:"No scores yet";}
+$("#bestpill").onclick=()=>go("history");
 function updateScore(){const answered=Object.keys(results).length,right=Object.values(results).filter(Boolean).length;
  $("#livescore").textContent=`Score ${right} / ${TOTAL}`;
  $("#resbar").style.width=(TOTAL?answered/TOTAL*100:0)+"%";
@@ -478,7 +496,7 @@ function updateScore(){const answered=Object.keys(results).length,right=Object.v
 const n=i=>`<span class="num">${i+1}</span>`;
 
 function renderAll(){
- results={};TOTAL=FILL.length+CHOOSE.length+ENDS.length+BUILD.length+QUIZ.length;
+ results={};saved=false;TOTAL=FILL.length+CHOOSE.length+ENDS.length+BUILD.length+QUIZ.length;
  // fill
  $("#ex-fill").innerHTML=FILL.map((x,i)=>`<div class="item" data-i="${i}">${n(i)}<span>${x.b}</span><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false"><span>${x.a}</span><span class="hint">${x.inf}</span><button class="btn">Check</button><div class="fb"></div></div>`).join("");
  $("#ex-fill").querySelectorAll(".item").forEach(el=>{
@@ -501,7 +519,7 @@ function renderAll(){
  // quiz
  $("#ex-quiz").innerHTML=QUIZ.map((x,i)=>`<div class="qwrap" data-i="${i}"><div class="qhead">${n(i)}<span>${x.q}</span></div><div class="opts">${x.o.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join("")}</div><div class="fb"></div></div>`).join("");
  $("#ex-quiz").querySelectorAll(".qwrap").forEach(el=>{const i=+el.dataset.i,x=QUIZ[i];mcq(el,x.c,"q"+i,x.en)});
- $("#resout").style.display="none";$("#finish").style.display="";
+ $("#resout").style.display="none";$("#finish").style.display="";$("#savednote").textContent="";
  updateScore();
 }
 function mcq(el,c,id,en,after){const bs=el.querySelectorAll(".opt"),fb=el.querySelector(".fb");
@@ -518,13 +536,13 @@ function buildItem(el,x,i){const line=el.querySelector(".build-line"),bank=el.qu
   line.style.borderColor=ok?"var(--ok)":"var(--bad)";line.style.borderStyle="solid";
   fb.className="fb "+(ok?"ok":"no");fb.innerHTML=(ok?"✓ Richtig! ":`✗ Correct: <b>${x.w.join(" ")}</b>`)+` <button class="speak" style="font-size:1rem;margin:0">🔊</button>`;
   fb.querySelector(".speak").onclick=()=>speak(x.w.join(" "));};}
-$("#finish").onclick=()=>{const answered=Object.keys(results).length,right=Object.values(results).filter(Boolean).length,pct=Math.round(right/TOTAL*100);
+$("#finish").onclick=()=>{persist();const answered=Object.keys(results).length,right=Object.values(results).filter(Boolean).length,pct=Math.round(right/TOTAL*100);
  $("#respct").textContent=`${right} / ${TOTAL} · ${pct}%`;
  const st=pct>=90?3:pct>=70?2:pct>=40?1:0;$("#stars").textContent="★".repeat(st)+"☆".repeat(3-st);$("#stars").style.color="var(--gold)";
  $("#resmsg").textContent=(answered<TOTAL?`You skipped ${TOTAL-answered} question(s). `:"")+(pct>=90?"Ausgezeichnet! You've got this lesson down.":pct>=70?"Sehr gut! Review the ones you missed and try again.":pct>=40?"Gut gemacht! Go back to the conjugation table, then retry.":"Kein Problem! Read the notes once more and give it another go.");
  $("#resout").style.display="block";$("#finish").style.display="none";};
 $("#retry").onclick=()=>{renderAll();window.scrollTo({top:0,behavior:"smooth"})};
-renderAll();
+renderAll();refreshBest();
 
 /* ---------- flashcards ---------- */
 const DECK=[

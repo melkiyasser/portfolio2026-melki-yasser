@@ -1,0 +1,30 @@
+/* Shared styles for the German Lessons progress UI. Everything is prefixed gl- and
+   relies on the CSS variables already defined by each lesson page. */
+.gl-back{display:inline-block;margin-top:18px;font-weight:800;color:var(--blue);text-decoration:none;padding:6px 14px;border:2px solid var(--line);border-radius:999px;background:var(--card)}
+.gl-back:hover{border-color:var(--blue)}
+.gl-pill{cursor:pointer;background:var(--ok-soft)!important;color:var(--ok)!important}
+.gl-note{background:var(--blue-soft);border-left:4px solid var(--blue);padding:10px 14px;border-radius:10px;margin:0 0 16px;font-size:.92rem}
+.gl-sum{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.gl-stat{flex:1;min-width:100px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center}
+.gl-stat b{display:block;font-size:1.5rem;font-weight:900;line-height:1.2}
+.gl-stat small{color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.7rem}
+.gl-spark{width:100%;max-width:340px;height:56px;display:block;background:var(--bg);border:1px solid var(--line);border-radius:12px}
+.gl-row{padding:10px 0;border-bottom:1px dashed var(--line)}
+.gl-row:last-child{border-bottom:0}
+.gl-row-h{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-weight:800}
+.gl-seq{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:6px 0;font-size:.85rem}
+.gl-pt{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 9px;font-weight:800}
+.gl-pt.last{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.gl-arrow{color:var(--muted)}
+.gl-up{color:var(--ok);font-weight:800;font-size:.9rem}
+.gl-down{color:var(--bad);font-weight:800;font-size:.9rem}
+.gl-flat{color:var(--muted);font-weight:800;font-size:.9rem}
+.gl-bar{height:8px;background:var(--bg);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.gl-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold))}
+.gl-star{color:var(--gold);letter-spacing:2px}
+.gl-att{margin-top:14px}
+.gl-att summary{cursor:pointer;font-weight:800}
+.gl-att ul{list-style:none;margin:8px 0 0;padding:0}
+.gl-att li{display:flex;gap:10px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+.gl-att li span:first-child{color:var(--muted);min-width:110px}
+.gl-clear{margin:4px 0 12px}
