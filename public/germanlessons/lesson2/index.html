@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>German Grammar Lesson 2: der, die, das</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/germanlessons/gl.css">
+<script src="/germanlessons/lessons.js"></script>
+<style>
+:root{
+  --bg:#faf7f2;--card:#ffffff;--ink:#1d1d1f;--muted:#6b6862;--line:#e8e2d8;
+  --accent:#e4572e;--accent-soft:#fde8e1;--blue:#2f6fde;--blue-soft:#e3ecfc;
+  --ok:#1f9d55;--ok-soft:#dff3e7;--bad:#d64545;--bad-soft:#fbe3e3;--gold:#f2b705;
+  --der:#2f6fde;--die:#d64545;--das:#1f9d55;--shadow:0 2px 0 rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#16161a;--card:#202027;--ink:#f1efe9;--muted:#a7a39b;--line:#33323a;
+  --accent:#ff7a52;--accent-soft:#3a2620;--blue:#6d9cff;--blue-soft:#1f2a42;
+  --ok:#3ccf7d;--ok-soft:#1a3326;--bad:#ff6b6b;--bad-soft:#3a1f22;
+  --der:#6d9cff;--die:#ff6b6b;--das:#3ccf7d;--shadow:0 2px 0 rgba(0,0,0,.3);
+}}
+:root[data-theme="dark"]{
+  --bg:#16161a;--card:#202027;--ink:#f1efe9;--muted:#a7a39b;--line:#33323a;
+  --accent:#ff7a52;--accent-soft:#3a2620;--blue:#6d9cff;--blue-soft:#1f2a42;
+  --ok:#3ccf7d;--ok-soft:#1a3326;--bad:#ff6b6b;--bad-soft:#3a1f22;
+  --der:#6d9cff;--die:#ff6b6b;--das:#3ccf7d;--shadow:0 2px 0 rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{padding:36px 0 18px;text-align:center}
+.flag{display:inline-flex;height:8px;width:72px;border-radius:4px;overflow:hidden;margin-bottom:14px}
+.flag i{flex:1}.flag i:nth-child(1){background:#111}.flag i:nth-child(2){background:#dd0000}.flag i:nth-child(3){background:#ffce00}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);font-weight:900;margin:0 0 6px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin:0}
+nav{position:sticky;top:0;z-index:10;background:var(--bg);padding:10px 0;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+nav button{font:inherit;font-weight:800;border:2px solid var(--line);background:var(--card);color:var(--ink);padding:9px 18px;border-radius:999px;cursor:pointer}
+nav button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.scorepill{font-weight:800;background:var(--accent-soft);color:var(--accent);padding:9px 14px;border-radius:999px}
+section.tab{display:none;padding-top:22px}section.tab.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:18px;box-shadow:var(--shadow)}
+h2{font-size:1.35rem;font-weight:900;margin:0 0 4px}
+h3{font-size:1.05rem;font-weight:800;margin:18px 0 8px}
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.muted{color:var(--muted)}
+.svo{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.svo div{flex:1;min-width:110px;text-align:center;border-radius:14px;padding:12px 8px;font-weight:800;font-size:1.2rem}
+.svo small{display:block;font-size:.75rem;font-weight:700;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.s{background:var(--blue-soft);color:var(--blue)}.v{background:var(--accent-soft);color:var(--accent)}.o{background:var(--ok-soft);color:var(--ok)}
+table{width:100%;border-collapse:collapse;margin:8px 0}
+td,th{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.end{color:var(--accent);font-weight:900}
+.stem{font-weight:800}
+.tip{background:var(--blue-soft);border-left:4px solid var(--blue);padding:10px 14px;border-radius:10px;margin:12px 0}
+.warn{background:var(--accent-soft);border-left:4px solid var(--accent);padding:10px 14px;border-radius:10px;margin:12px 0}
+.vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.vocab span{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:.95rem}
+.vocab b{display:block}
+.vocab em{font-style:normal;color:var(--muted);font-size:.85rem}
+.g-der{color:var(--der)}.g-die{color:var(--die)}.g-das{color:var(--das)}
+.legend{font-size:.85rem;color:var(--muted);margin-top:8px}
+.ex{font-weight:700}
+.ex .tr{display:block;font-weight:400;color:var(--muted);font-size:.92rem}
+/* exercises */
+.item{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.item:last-child{border-bottom:0}
+.num{width:26px;height:26px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex:none}
+.item input[type=text]{font:inherit;font-weight:700;width:120px;padding:7px 10px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.item input:focus{outline:none;border-color:var(--blue)}
+.hint{font-size:.8rem;font-weight:800;background:var(--bg);border:1px solid var(--line);color:var(--muted);padding:2px 8px;border-radius:999px}
+.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:8px 14px;cursor:pointer;background:var(--ink);color:var(--bg)}
+.btn.ghost{background:var(--bg);color:var(--ink);border:2px solid var(--line)}
+.btn.big{padding:13px 22px;font-size:1.05rem;border-radius:14px;background:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.opt{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:7px 12px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.opt:disabled{cursor:default}
+.fb{flex-basis:100%;font-size:.92rem;padding-left:34px;min-height:0}
+.fb.ok{color:var(--ok)}.fb.no{color:var(--bad)}
+input.right{border-color:var(--ok)!important;background:var(--ok-soft)!important}
+input.wrong{border-color:var(--bad)!important;background:var(--bad-soft)!important}
+.q{flex-basis:100%;font-weight:700;padding-left:34px;margin-top:-30px;padding-top:4px}
+.qwrap{display:flex;flex-direction:column;gap:8px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.qwrap:last-child{border-bottom:0}
+.qhead{display:flex;gap:8px;align-items:flex-start;font-weight:700}
+.opts{display:flex;flex-wrap:wrap;gap:8px;padding-left:34px}
+.build-line{min-height:48px;border:2px dashed var(--line);border-radius:12px;padding:6px;display:flex;flex-wrap:wrap;gap:6px;margin-left:34px}
+.bank{display:flex;flex-wrap:wrap;gap:6px;margin-left:34px}
+.chip{font:inherit;font-weight:800;border:2px solid var(--line);border-bottom-width:4px;background:var(--card);color:var(--ink);border-radius:10px;padding:6px 12px;cursor:pointer}
+.build-line .chip{background:var(--blue-soft);border-color:var(--blue);color:var(--blue)}
+.row-actions{display:flex;gap:8px;margin-left:34px}
+.result{text-align:center;padding:28px 20px}
+.result .big{font-size:3rem;font-weight:900;line-height:1}
+.stars{font-size:2rem;letter-spacing:4px;margin:8px 0}
+.bar{height:10px;background:var(--bg);border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:10px 0 4px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));width:0;transition:width .4s}
+/* flashcards */
+.filters{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:14px}
+.filters button{font:inherit;font-weight:700;font-size:.9rem;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.filters button.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.scene{perspective:1200px;max-width:460px;margin:0 auto;height:260px;cursor:pointer}
+.fc{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.fc.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--card)}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:var(--bg)}
+.face .word{font-size:clamp(1.8rem,7vw,2.6rem);font-weight:900;letter-spacing:-.01em}
+.face .cat{position:absolute;top:14px;left:16px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.face.back .cat{color:inherit;opacity:.6}
+.face .exs{margin-top:12px;font-weight:700;opacity:.85}
+.face .exs small{display:block;font-weight:400;opacity:.8}
+.tap{position:absolute;bottom:12px;font-size:.78rem;color:var(--muted)}
+.fc-nav{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+.counter{font-weight:800;color:var(--muted);min-width:70px;text-align:center}
+.knowbar{display:flex;justify-content:center;gap:10px;margin-top:12px}
+.knowbar .yes{background:var(--ok);color:#fff}.knowbar .no{background:var(--bad);color:#fff}
+.speak{font:inherit;border:0;background:transparent;font-size:1.3rem;cursor:pointer;margin-top:8px;color:inherit}
+.intro-form{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin:10px 0}
+.intro-form input{font:inherit;padding:9px 11px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+.intro-out{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-weight:700;min-height:48px}
+.site-footer{border-top:1px solid var(--line);margin-top:10px;padding:28px 16px 36px;text-align:center}
+.site-footer .soon{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:800;padding:8px 16px;border-radius:999px;margin-bottom:14px}
+.site-footer p{margin:4px 0}
+.site-footer .love{font-size:1.05rem}
+.site-footer .heart{color:#e63946;display:inline-block;animation:beat 1.4s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}}
+.site-footer a{color:var(--blue);font-weight:700;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.site-footer .copy{color:var(--muted);font-size:.85rem}
+@media (max-width:520px){.item input[type=text]{width:100px}.fb,.opts,.build-line,.bank,.row-actions{padding-left:0;margin-left:0}}
+
+/* lesson 2 extras */
+.three{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.three div{flex:1;min-width:110px;text-align:center;border-radius:14px;padding:12px 8px;font-weight:900;font-size:1.5rem}
+.three small{display:block;font-size:.75rem;font-weight:700;opacity:.8;text-transform:uppercase;letter-spacing:.06em}
+.t-der{background:var(--blue-soft);color:var(--der)}.t-die{background:var(--bad-soft);color:var(--die)}.t-das{background:var(--ok-soft);color:var(--das)}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:12px 0}
+.rule{border:1px solid var(--line);border-radius:14px;padding:4px 14px 12px;background:var(--bg)}
+.rule h3{margin:10px 0 6px}
+.rule ul{list-style:none;margin:0;padding:0}
+.rule li{padding:6px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.rule li:last-child{border-bottom:0}
+.rule.r-der{border-top:4px solid var(--der)}.rule.r-die{border-top:4px solid var(--die)}.rule.r-das{border-top:4px solid var(--das)}
+.art{display:inline-block;font-weight:900;padding:1px 12px;border-radius:999px}
+.art.der{background:var(--blue-soft);color:var(--der)}.art.die{background:var(--bad-soft);color:var(--die)}.art.das{background:var(--ok-soft);color:var(--das)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="gl-back" href="/germanlessons">← All lessons</a>
+<header>
+  <div class="flag"><i></i><i></i><i></i></div>
+  <div class="kicker">Lesson 2 · Nouns & articles</div>
+  <h1>Der, die or das?</h1>
+  <p class="sub">The three genders, a/an, plurals & the endings that give the answer away</p>
+</header>
+
+<nav>
+  <button class="on" data-tab="notes">📒 Notes</button>
+  <button data-tab="practice">✏️ Practice</button>
+  <button data-tab="cards">🃏 Flashcards</button>
+  <button data-tab="history">📊 My progress</button>
+  <span class="scorepill" id="livescore">Score 0 / 0</span>
+  <span class="scorepill gl-pill" id="bestpill" role="button" tabindex="0" title="Open my progress"></span>
+</nav>
+
+<!-- ============ NOTES ============ -->
+<section class="tab on" id="notes">
+
+<div class="warn"><b>Don't panic!</b> Articles are famous for being tricky, even advanced learners slip up. Treat this lesson like a game: you will learn a few <i>patterns</i> that let you guess right most of the time, and you only memorise the rest.</div>
+
+<div class="card">
+  <div class="kicker">Step 1</div>
+  <h2>Every noun has a gender</h2>
+  <p>German nouns are <b>always written with a capital letter</b>, and each one is <b>masculine, feminine or neuter</b>. The gender decides the article, <b>the</b> in English:</p>
+  <div class="three">
+    <div class="t-der"><small>masculine</small>der</div>
+    <div class="t-die"><small>feminine</small>die</div>
+    <div class="t-das"><small>neuter</small>das</div>
+  </div>
+  <p class="ex">der Baum <span class="muted">· the tree</span><br>die Uhr <span class="muted">· the watch / clock</span><br>das Buch <span class="muted">· the book</span></p>
+  <div class="warn"><b>Golden rule:</b> learn every new noun <b>together with its article</b>. Not <i>Baum</i>, but <i>der Baum</i>. The article is part of the word. Try colours: <span class="g-der"><b>der = blue</b></span>, <span class="g-die"><b>die = red</b></span>, <span class="g-das"><b>das = green</b></span>.</div>
+  <div class="tip"><b>Link to Lesson 1:</b> remember <i>er / sie / es</i>? They match the gender of the noun.<br>
+  <i>Der Baum ist groß. <b>Er</b> ist grün.</i> (er = the tree)<br>
+  <i>Die Uhr ist teuer. <b>Sie</b> ist neu.</i> (sie = the watch)<br>
+  <i>Das Buch ist dick. <b>Es</b> ist interessant.</i> (es = the book)<br>
+  So even a German "it" has three versions!</div>
+</div>
+
+<div class="card">
+  <div class="kicker">Step 2</div>
+  <h2>"The" vs "a / an"</h2>
+  <p><b>Definite</b> (the) = something specific you both know. <b>Indefinite</b> (a / an) = something new or general.</p>
+  <table>
+    <tr><th></th><th>the</th><th>a / an</th></tr>
+    <tr><td>masculine</td><td><span class="g-der"><b>der</b></span> Baum</td><td><b>ein</b> Baum</td></tr>
+    <tr><td>feminine</td><td><span class="g-die"><b>die</b></span> Uhr</td><td><b>eine</b> Uhr</td></tr>
+    <tr><td>neuter</td><td><span class="g-das"><b>das</b></span> Buch</td><td><b>ein</b> Buch</td></tr>
+    <tr><td>plural</td><td><span class="g-die"><b>die</b></span> Bücher</td><td class="muted">(no article)</td></tr>
+  </table>
+  <p class="ex">Der Baum ist groß. Das ist ein Baum.<span class="tr">The tree is big. That is a tree.</span></p>
+  <p class="ex">Die Uhr ist teuer. Das ist eine Uhr.<span class="tr">The watch is expensive. That is a watch.</span></p>
+  <p class="ex">Das Buch ist dick. Das ist ein Buch.<span class="tr">The book is thick. That is a book.</span></p>
+  <div class="tip"><b>ist = is, sind = are.</b> One thing → <i>ist</i>. Several things → <i>sind</i>: <i>Die Bücher sind interessant.</i> (The books are interesting.)</div>
+</div>
+
+<div class="card">
+  <div class="kicker">Step 3 · plural</div>
+  <h2>In the plural everything is "die"</h2>
+  <p>It doesn't matter if the singular was der, die or das: the plural is always <span class="g-die"><b>die</b></span>.</p>
+  <p class="ex">Die Bäume sind grün.<span class="tr">The trees are green.</span></p>
+  <p class="ex">Die Uhren sind teuer.<span class="tr">The watches are expensive.</span></p>
+  <p class="ex">Die Bücher sind interessant.<span class="tr">The books are interesting.</span></p>
+  <div class="warn"><b>Careful:</b> <span class="g-die"><b>die</b></span> is both <i>feminine singular</i> and <i>plural</i>. <i>Die Uhr</i> = one watch, <i>die Uhren</i> = several. Look at the verb: <i>ist</i> or <i>sind</i>?</div>
+  <p><b>"a" + plural = nothing.</b> There is no plural of ein, you simply drop the article:</p>
+  <p class="ex">Bücher sind heutzutage so teuer.<span class="tr">Books are so expensive nowadays. (books in general)</span></p>
+  <p class="ex">Die Bücher in diesem Semester sind so teuer.<span class="tr">The books this semester are so expensive. (these specific books)</span></p>
+</div>
+
+<div class="card">
+  <div class="kicker">Step 4 · the cheat sheet</div>
+  <h2>Endings & groups that give the gender away</h2>
+  <p>You don't have to learn everything by heart. Many nouns follow a pattern:</p>
+  <div class="rules">
+    <div class="rule r-der">
+      <h3 class="g-der">der · masculine</h3>
+      <ul>
+        <li><b>Male people & animals</b><br><span class="muted">der Onkel, der Kollege, der Löwe</span></li>
+        <li><b>Male jobs</b><br><span class="muted">der Arzt, der Lehrer</span></li>
+        <li><b>Days, months, seasons</b><br><span class="muted">der Montag, der Mai, der Winter</span></li>
+        <li><b>-or</b><br><span class="muted">der Motor, der Monitor</span></li>
+        <li><b>-ismus</b><br><span class="muted">der Kapitalismus</span></li>
+        <li><b>-en</b> <span class="muted">(often)</span><br><span class="muted">der Garten</span></li>
+      </ul>
+    </div>
+    <div class="rule r-die">
+      <h3 class="g-die">die · feminine</h3>
+      <ul>
+        <li><b>Female people & animals</b><br><span class="muted">die Studentin, die Katze</span></li>
+        <li><b>-in</b> <span class="muted">(female version of a job/person)</span><br><span class="muted">die Ärztin, die Kollegin</span></li>
+        <li><b>-heit / -keit</b><br><span class="muted">die Krankheit, die Möglichkeit</span></li>
+        <li><b>-ei</b><br><span class="muted">die Bäckerei</span></li>
+        <li><b>-ung</b><br><span class="muted">die Zeitung, die Wohnung, die Übung</span></li>
+        <li><b>-tion / -ität</b><br><span class="muted">die Information, die Universität</span></li>
+      </ul>
+    </div>
+    <div class="rule r-das">
+      <h3 class="g-das">das · neuter</h3>
+      <ul>
+        <li><b>-chen / -lein</b> <span class="muted">(small & cute)</span><br><span class="muted">das Mädchen, das Häuschen</span></li>
+        <li><b>-ment</b><br><span class="muted">das Dokument, das Apartment</span></li>
+        <li><b>-um</b><br><span class="muted">das Zentrum, das Museum</span></li>
+        <li><b>Verbs used as nouns</b><br><span class="muted">das Lernen, das Essen</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="warn"><b>The famous one: das Mädchen.</b> A girl is female, but <i>-chen</i> beats everything and makes the word <b>neuter</b>. The same ending turns <i>das Haus</i> into <i>das Häuschen</i> (little house).</div>
+  <div class="tip"><b>From male to female:</b> add <b>-in</b>. <i>der Kollege → die Kollegin</i>, <i>der Student → die Studentin</i>, <i>der Arzt → die Ärztin</i>. The word often gets an umlaut (Arzt → Ärztin).</div>
+  <div class="tip"><b>No 100% rules.</b> These are strong hints, not laws. Words ending in <i>-en</i> are mostly masculine (<i>der Garten</i>) <b>unless</b> they are verbs turned into nouns (<i>das Essen</i>, "eating / the meal"). When in doubt: check a dictionary and learn the article.</div>
+</div>
+
+<div class="card">
+  <div class="kicker">Step 5 · two bonus tricks</div>
+  <h2>Verbs as nouns & compound words</h2>
+  <h3>1. A verb becomes a noun with <span class="g-das"><b>das</b></span></h3>
+  <p>Write the infinitive with a capital letter and put <b>das</b> in front:</p>
+  <p class="ex">lernen → <b>das Lernen</b><span class="tr">Das Lernen ist schwer. = Learning is hard.</span></p>
+  <p class="ex">essen → <b>das Essen</b><span class="tr">Das Essen ist gut. = The food is good.</span></p>
+  <h3>2. Compound nouns: the last word decides</h3>
+  <p>German glues words together. The <b>last part</b> gives the article:</p>
+  <table>
+    <tr><td>der Apfel + der Saft</td><td>= <span class="g-der"><b>der</b></span> Apfelsaft</td><td class="muted">apple juice</td></tr>
+    <tr><td>der Kaffee + die Tasse</td><td>= <span class="g-die"><b>die</b></span> Kaffeetasse</td><td class="muted">coffee cup</td></tr>
+    <tr><td>das Wasser + die Flasche</td><td>= <span class="g-die"><b>die</b></span> Wasserflasche</td><td class="muted">water bottle</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <div class="kicker">Vocabulary from the lesson</div>
+  <h2>Wörter</h2>
+  <h3 class="g-der">der · masculine</h3><div class="vocab" id="v-der"></div>
+  <h3 class="g-die">die · feminine</h3><div class="vocab" id="v-die"></div>
+  <h3 class="g-das">das · neuter</h3><div class="vocab" id="v-das"></div>
+  <h3>Adjectives</h3><div class="vocab" id="v-adj"></div>
+  <h3>Little words</h3><div class="vocab" id="v-small"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">How to practise</div>
+  <h2>3 habits that really work</h2>
+  <p>① Always say the noun <b>with</b> its article, out loud: "der Tisch, der Tisch, der Tisch".<br>
+  ② Put colour-coded sticky notes on things at home: blue / red / green.<br>
+  ③ Learn 3 to 5 new nouns a day, not 50. The patterns above will do the rest.</p>
+</div>
+
+<div style="text-align:center"><button class="btn big" data-go="practice">Start practising →</button></div>
+</section>
+
+<!-- ============ PRACTICE ============ -->
+<section class="tab" id="practice">
+
+<div class="card">
+  <div class="kicker">Übung 1</div>
+  <h2>Der, die or das?</h2>
+  <p class="muted">Pick the right article. Use the cheat sheet if you get stuck. The reason appears after each answer.</p>
+  <div id="ex-sort"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Übung 2</div>
+  <h2>Mystery words 🕵️</h2>
+  <p class="muted">You have probably never seen these words. Can you guess the article from the ending alone?</p>
+  <div id="ex-myst"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Übung 3</div>
+  <h2>Fill in the article</h2>
+  <p class="muted">Type <b>der, die, das, ein</b> or <b>eine</b>. Press Enter or Check. Your first answer counts.</p>
+  <div id="ex-fill"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Übung 4</div>
+  <h2>Odd one out 🎯</h2>
+  <p class="muted">Three of these words share an article. Which one does not belong?</p>
+  <div id="ex-odd"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Übung 5</div>
+  <h2>Build the sentence</h2>
+  <p class="muted">Tap the words in the right order. Tap a word in your line to send it back.</p>
+  <div id="ex-build"></div>
+</div>
+
+<div class="card">
+  <div class="kicker">Übung 6</div>
+  <h2>Quick quiz</h2>
+  <p class="muted">Plurals, endings, tricks… everything from the notes.</p>
+  <div id="ex-quiz"></div>
+</div>
+
+<div class="card result" id="result">
+  <div class="kicker">Finished?</div>
+  <h2>See your score</h2>
+  <div class="bar"><i id="resbar"></i></div>
+  <p class="muted" id="resprog">0 of 0 answered</p>
+  <button class="btn big" id="finish">Show my result 🎯</button>
+  <p class="muted" id="savednote" style="font-size:.9rem"></p>
+  <div id="resout" style="display:none">
+    <div class="stars" id="stars"></div>
+    <div class="big" id="respct"></div>
+    <p id="resmsg" style="font-weight:700"></p>
+    <button class="btn ghost" id="retry">↺ Try again</button>
+    <button class="btn" data-go="cards">Review flashcards →</button>
+  </div>
+</div>
+</section>
+
+<!-- ============ MY PROGRESS ============ -->
+<section class="tab" id="history"><div id="gl-history"></div></section>
+
+<!-- ============ FLASHCARDS ============ -->
+<section class="tab" id="cards">
+<div class="filters" id="filters"></div>
+<div class="scene" id="scene">
+  <div class="fc" id="fc">
+    <div class="face front"><span class="cat" id="f-cat"></span><div class="word" id="f-word"></div><button class="speak" id="f-speak" title="Listen">🔊</button><span class="tap">guess, then tap to flip</span></div>
+    <div class="face back"><span class="cat">Answer</span><div class="word" id="b-word" style="font-size:clamp(1.6rem,6vw,2.2rem)"></div><div class="exs" id="b-ex"></div></div>
+  </div>
+</div>
+<div class="knowbar">
+  <button class="btn no" id="k-no">✗ Again</button>
+  <button class="btn yes" id="k-yes">✓ I know it</button>
+</div>
+<div class="fc-nav">
+  <button class="btn ghost" id="prev">←</button>
+  <span class="counter" id="counter"></span>
+  <button class="btn ghost" id="next">→</button>
+  <button class="btn ghost" id="shuffle">🔀 Shuffle</button>
+</div>
+<p class="muted" style="text-align:center;margin-top:14px" id="known"></p>
+<p class="muted" style="text-align:center;font-size:.85rem">Keyboard: Space = flip · ← → = move</p>
+</section>
+</div>
+
+<footer class="site-footer">
+  <div class="soon">🚀 More lessons coming soon!</div>
+  <p class="love">Made with <span class="heart">❤</span> by <b>Yasser Melki</b></p>
+  <p class="links"><a href="https://yasser-melki.de">yasser-melki.de</a> · <a href="/germanlessons">German Lessons</a></p>
+  <p class="copy">© <span id="yr">2026</span> Yasser Melki</p>
+</footer>
+
+<script>
+document.getElementById("yr").textContent=new Date().getFullYear();
+const LESSON="lesson2";
+/* ---------- data ---------- */
+// [article, noun, english, why, example]
+const N=[
+ ["der","Baum","tree","no rule, just learn it","Der Baum ist groß."],
+ ["der","Onkel","uncle","a male person",""],
+ ["der","Kollege","colleague (male)","a male person",""],
+ ["der","Arzt","doctor (male)","a male job",""],
+ ["der","Lehrer","teacher (male)","a male job",""],
+ ["der","Nachbar","neighbour (male)","a male person",""],
+ ["der","Monitor","computer screen","ends in -or",""],
+ ["der","Garten","garden","ends in -en (mostly masculine)",""],
+ ["der","Mai","May","months are masculine",""],
+ ["die","Uhr","watch, clock","no rule, just learn it","Die Uhr ist teuer."],
+ ["die","Katze","cat","a female animal",""],
+ ["die","Kollegin","colleague (female)","ends in -in",""],
+ ["die","Ärztin","doctor (female)","ends in -in",""],
+ ["die","Studentin","student (female)","ends in -in",""],
+ ["die","Wohnung","apartment, flat","ends in -ung",""],
+ ["die","Zeitung","newspaper","ends in -ung",""],
+ ["die","Übung","exercise","ends in -ung",""],
+ ["die","Krankheit","illness","ends in -heit",""],
+ ["die","Bäckerei","bakery","ends in -ei",""],
+ ["das","Buch","book","no rule, just learn it","Das Buch ist dick."],
+ ["das","Mädchen","girl","ends in -chen",""],
+ ["das","Brötchen","bread roll","ends in -chen",""],
+ ["das","Zentrum","centre","ends in -um",""],
+ ["das","Dokument","document","ends in -ment",""],
+ ["das","Semester","semester","no rule, just learn it",""]
+];
+const ADJ=[["groß","big, tall"],["klein","small"],["teuer","expensive"],["dick","thick"],["grün","green"],["interessant","interesting"],["schwer","hard, difficult (also: heavy)"],["neu","new"]];
+const SMALL=[["ist","is"],["sind","are"],["ein / eine","a / an"],["heutzutage","nowadays"]];
+// [ending, article, meaning, examples]
+const ENDINGS=[
+ ["Days & months","der","always masculine","der Montag, der Mai"],
+ ["-or","der","masculine","der Monitor, der Motor"],
+ ["-ismus","der","masculine","der Kapitalismus"],
+ ["-in","die","female person / job","die Ärztin, die Studentin"],
+ ["-heit / -keit","die","feminine","die Krankheit, die Möglichkeit"],
+ ["-ei","die","feminine","die Bäckerei"],
+ ["-ung","die","feminine","die Zeitung, die Wohnung"],
+ ["-tion / -ität","die","feminine","die Information, die Universität"],
+ ["-chen / -lein","das","neuter (small & cute)","das Mädchen, das Häuschen"],
+ ["-ment","das","neuter","das Dokument"],
+ ["-um","das","neuter","das Zentrum, das Museum"],
+ ["a verb as a noun","das","neuter","das Lernen, das Essen"]
+];
+
+const $=s=>document.querySelector(s);
+for(const a of ["der","die","das"])$("#v-"+a).innerHTML=N.filter(x=>x[0]===a).map(x=>`<span><b class="g-${a}">${a} ${x[1]}</b><em>${x[2]}</em></span>`).join("");
+$("#v-adj").innerHTML=ADJ.map(v=>`<span><b>${v[0]}</b><em>${v[1]}</em></span>`).join("");
+$("#v-small").innerHTML=SMALL.map(v=>`<span><b>${v[0]}</b><em>${v[1]}</em></span>`).join("");
+
+function speak(t){try{const u=new SpeechSynthesisUtterance(t);u.lang="de-DE";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+
+/* ---------- tabs ---------- */
+function go(id){document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===id));
+ document.querySelectorAll("section.tab").forEach(s=>s.classList.toggle("on",s.id===id));window.scrollTo({top:0,behavior:"smooth"});
+ if(id==="history")GL.renderHistory($("#gl-history"),[LESSON],{onClear:refreshBest})}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>go(b.dataset.tab));
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+
+/* ---------- exercises ---------- */
+const ARTS=["der","die","das"];
+// [noun, english, article, reason]
+const SORT=[
+ ["Onkel","uncle","der","a male person"],
+ ["Montag","Monday","der","days are masculine"],
+ ["Monitor","computer screen","der","ends in -or"],
+ ["Mai","May","der","months are masculine"],
+ ["Katze","cat","die","a female animal"],
+ ["Lehrerin","teacher (female)","die","ends in -in"],
+ ["Wohnung","apartment","die","ends in -ung"],
+ ["Mädchen","girl","das","ends in -chen (even though a girl is female!)"],
+ ["Brötchen","bread roll","das","ends in -chen"],
+ ["Zentrum","centre","das","ends in -um"]
+];
+// brand-new words, guess from the ending
+const MYST=[
+ ["Freiheit","freedom","die","-heit is always feminine"],
+ ["Museum","museum","das","-um is neuter"],
+ ["Konditorei","pastry shop","die","-ei is feminine"],
+ ["Dokument","document","das","-ment is neuter"],
+ ["Kapitalismus","capitalism","der","-ismus is masculine"],
+ ["Revolution","revolution","die","-tion is feminine"],
+ ["Professor","professor (male)","der","-or is masculine (and a male job)"],
+ ["Kätzchen","kitten","das","-chen makes it neuter"]
+];
+const FILL=[
+ {pre:"",post:"Baum ist grün.",hint:"tree",ans:["der"],en:"The tree is green."},
+ {pre:"Das ist",post:"Uhr.",hint:"a watch",ans:["eine"],en:"That is a watch."},
+ {pre:"",post:"Buch ist dick.",hint:"book",ans:["das"],en:"The book is thick."},
+ {pre:"Das ist",post:"Buch.",hint:"a book",ans:["ein"],en:"That is a book. (neuter → ein)"},
+ {pre:"",post:"Bücher sind interessant.",hint:"plural",ans:["die"],en:"The books are interesting. The plural is always die."},
+ {pre:"Das ist",post:"Katze.",hint:"a cat",ans:["eine"],en:"That is a cat. (die Katze → eine Katze)"},
+ {pre:"",post:"Zeitung ist neu.",hint:"-ung",ans:["die"],en:"The newspaper is new. -ung = feminine."},
+ {pre:"",post:"Mädchen ist klein.",hint:"-chen",ans:["das"],en:"The girl is small. -chen = neuter."}
+];
+const ODD=[
+ {w:["Zeitung","Wohnung","Garten","Übung"],c:2,en:"Garten is der. The other three end in -ung, so they are die."},
+ {w:["Brötchen","Mädchen","Zentrum","Krankheit"],c:3,en:"Krankheit is die (-heit). The others are all das."},
+ {w:["Montag","April","Mittwoch","Uhr"],c:3,en:"Uhr is die. Days and months are all der."},
+ {w:["Bäckerei","Gesundheit","Information","Monitor"],c:3,en:"Monitor is der (-or). The others end in -ei, -heit, -tion → die."},
+ {w:["Arzt","Onkel","Lehrer","Studentin"],c:3,en:"Studentin is die (female, -in). The others are male people → der."}
+];
+const BUILD=[
+ {w:["Der","Baum","ist","groß."],alt:[],en:"The tree is big."},
+ {w:["Die","Uhr","ist","teuer."],alt:[],en:"The watch is expensive."},
+ {w:["Das","ist","eine","Katze."],alt:[],en:"That is a cat."},
+ {w:["Die","Bücher","sind","interessant."],alt:[],en:"The books are interesting."},
+ {w:["Das","Lernen","ist","schwer."],alt:[],en:"Learning is hard."}
+];
+const QUIZ=[
+ {q:"Which article do ALL plural nouns get (the)?",o:["der","die","das"],c:1,en:"Plural = die, whatever the singular was."},
+ {q:"Why is „das Mädchen“ neuter although a girl is female?",o:["The ending -chen makes nouns neuter","All young people are neuter","It's a random exception"],c:0,en:"-chen / -lein = small & cute → always das."},
+ {q:"„Books are expensive nowadays“ (books in general). Which one fits?",o:["Bücher sind heutzutage teuer.","Eine Bücher sind heutzutage teuer.","Das Bücher sind heutzutage teuer."],c:0,en:"a + plural = no article at all."},
+ {q:"How do you say „Learning is hard“?",o:["Der Lernen ist schwer.","Das Lernen ist schwer.","Die Lernen ist schwer."],c:1,en:"A verb used as a noun is always neuter: das Lernen."},
+ {q:"Why should you learn every noun together with its article?",o:["The gender can't always be guessed","It looks nicer","Only plurals need it"],c:0,en:"der / die / das is part of the word. Learn them as a pair."},
+ {q:"„der Apfel“ + „die Tasse“ = ___ Apfeltasse. Which article?",o:["der","die","das"],c:1,en:"In compound words the LAST part decides: die Tasse → die Apfeltasse."},
+ {q:"How do you write German nouns?",o:["Always with a capital letter","Always lowercase","Only at the start of a sentence"],c:0,en:"Every noun starts with a capital: der Baum, die Uhr, das Buch."},
+ {q:"Which is the indefinite article (a) for a feminine noun?",o:["ein","eine","der"],c:1,en:"eine Uhr, eine Katze, eine Wohnung."},
+ {q:"„Die Uhr ist teuer. ___ ist neu.“ Which pronoun replaces „die Uhr“?",o:["Er","Sie","Es"],c:1,en:"die → sie (see Lesson 1). der → er, das → es."}
+];
+
+let results={},TOTAL=0,saved=false;
+const norm=s=>s.trim().toLowerCase().replace(/\s+/g," ");
+function record(id,ok){if(!(id in results)){results[id]=ok;updateScore();if(Object.keys(results).length===TOTAL)persist()}}
+/* save this attempt on the device (once per attempt) */
+function persist(){if(saved||!Object.keys(results).length)return;
+ const totals={s:SORT.length,m:MYST.length,f:FILL.length,o:ODD.length,b:BUILD.length,q:QUIZ.length},parts={};
+ for(const k in totals)parts[k]=[0,totals[k]];
+ for(const id in results)if(results[id])parts[id[0]][0]++;
+ const r=GL.saveAttempt(LESSON,parts);saved=true;refreshBest();
+ $("#savednote").textContent=r.ok?"💾 Result saved on this device. See “My progress”.":"⚠️ Couldn't save (browser storage is blocked).";}
+function refreshBest(){const s=GL.stats(LESSON);$("#bestpill").textContent=s.count?`Best ${s.best}% · ${s.count}×`:"No scores yet";}
+$("#bestpill").onclick=()=>go("history");
+function updateScore(){const answered=Object.keys(results).length,right=Object.values(results).filter(Boolean).length;
+ $("#livescore").textContent=`Score ${right} / ${TOTAL}`;
+ $("#resbar").style.width=(TOTAL?answered/TOTAL*100:0)+"%";
+ $("#resprog").textContent=`${answered} of ${TOTAL} answered`;}
+const n=i=>`<span class="num">${i+1}</span>`;
+const art=a=>`<b class="g-${a}">${a}</b>`;
+const optBtns=(arr,pad)=>`<div class="opts" style="flex-basis:100%${pad?';padding-left:0':''}">${arr.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join("")}</div>`;
+
+function artItems(sel,list,prefix,showEn){
+ $(sel).innerHTML=list.map((x,i)=>`<div class="item" data-i="${i}">${n(i)}<span class="hint">___</span><b>${x[0]}</b><span class="muted">(${x[1]})</span>${optBtns(ARTS)}<div class="fb"></div></div>`).join("");
+ $(sel).querySelectorAll(".item").forEach(el=>{const i=+el.dataset.i,x=list[i];
+  mcq(el,ARTS.indexOf(x[2]),prefix+i,`${art(x[2])} ${x[0]} · ${x[3]}`,()=>{const h=el.querySelector(".hint");h.textContent=x[2];h.className="art "+x[2]})});
+}
+
+function renderAll(){
+ results={};saved=false;TOTAL=SORT.length+MYST.length+FILL.length+ODD.length+BUILD.length+QUIZ.length;
+ artItems("#ex-sort",SORT,"s");
+ artItems("#ex-myst",MYST,"m");
+ // fill
+ $("#ex-fill").innerHTML=FILL.map((x,i)=>`<div class="item" data-i="${i}">${n(i)}${x.pre?`<span>${x.pre}</span>`:""}<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false"><span>${x.post}</span><span class="hint">${x.hint}</span><button class="btn">Check</button><div class="fb"></div></div>`).join("");
+ $("#ex-fill").querySelectorAll(".item").forEach(el=>{
+  const i=+el.dataset.i,x=FILL[i],inp=el.querySelector("input"),btn=el.querySelector("button"),fb=el.querySelector(".fb");
+  const check=()=>{if(!inp.value.trim()){inp.focus();return}
+   const ok=x.ans.includes(norm(inp.value));record("f"+i,ok);inp.disabled=btn.disabled=true;inp.classList.add(ok?"right":"wrong");
+   fb.className="fb "+(ok?"ok":"no");fb.innerHTML=(ok?"✓ Richtig! ":`✗ Correct: <b>${x.ans.join(" / ")}</b>. `)+x.en;
+   const nx=el.nextElementSibling?.querySelector("input");if(nx)nx.focus();};
+  btn.onclick=check;inp.onkeydown=e=>{if(e.key==="Enter")check()};});
+ // odd one out
+ $("#ex-odd").innerHTML=ODD.map((x,i)=>`<div class="qwrap" data-i="${i}"><div class="qhead">${n(i)}<span>Which one is different?</span></div><div class="opts">${x.w.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join("")}</div><div class="fb"></div></div>`).join("");
+ $("#ex-odd").querySelectorAll(".qwrap").forEach(el=>{const i=+el.dataset.i,x=ODD[i];mcq(el,x.c,"o"+i,x.en)});
+ // build
+ $("#ex-build").innerHTML=BUILD.map((x,i)=>`<div class="qwrap" data-i="${i}"><div class="qhead">${n(i)}<span class="muted" style="font-weight:600">${x.en}</span></div><div class="build-line"></div><div class="bank"></div><div class="row-actions"><button class="btn">Check</button><button class="btn ghost">Reset</button></div><div class="fb"></div></div>`).join("");
+ $("#ex-build").querySelectorAll(".qwrap").forEach(el=>buildItem(el,BUILD[+el.dataset.i],+el.dataset.i));
+ // quiz
+ $("#ex-quiz").innerHTML=QUIZ.map((x,i)=>`<div class="qwrap" data-i="${i}"><div class="qhead">${n(i)}<span>${x.q}</span></div><div class="opts">${x.o.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join("")}</div><div class="fb"></div></div>`).join("");
+ $("#ex-quiz").querySelectorAll(".qwrap").forEach(el=>{const i=+el.dataset.i,x=QUIZ[i];mcq(el,x.c,"q"+i,x.en)});
+ $("#resout").style.display="none";$("#finish").style.display="";$("#savednote").textContent="";
+ updateScore();
+}
+function mcq(el,c,id,en,after){const bs=el.querySelectorAll(".opt"),fb=el.querySelector(".fb");
+ bs.forEach(b=>b.onclick=()=>{const j=+b.dataset.j,ok=j===c;record(id,ok);
+  bs.forEach(x=>{x.disabled=true;if(+x.dataset.j===c)x.classList.add("right")});if(!ok)b.classList.add("wrong");
+  fb.className="fb "+(ok?"ok":"no");fb.innerHTML=(ok?"✓ Richtig! ":"✗ Not quite. ")+en;if(after)after();});}
+function shuffleArr(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function buildItem(el,x,i){const line=el.querySelector(".build-line"),bank=el.querySelector(".bank"),[chk,rst]=el.querySelectorAll(".row-actions button"),fb=el.querySelector(".fb");
+ let words=shuffleArr(x.w);if(words.join()===x.w.join()&&words.length>1)words.push(words.shift());
+ const draw=()=>{bank.innerHTML="";line.innerHTML="";words.forEach((w,k)=>{const b=document.createElement("button");b.className="chip";b.textContent=w;b.dataset.k=k;b.onclick=()=>{if(chk.disabled)return;(b.parentElement===bank?line:bank).appendChild(b)};bank.appendChild(b)})};
+ draw();rst.onclick=()=>{if(!chk.disabled)draw()};
+ chk.onclick=()=>{const got=[...line.children].map(c=>c.textContent);if(got.length<x.w.length){fb.className="fb no";fb.textContent="Use all the words first.";return}
+  const ok=[x.w,...x.alt].some(s=>s.join(" ")===got.join(" "));record("b"+i,ok);chk.disabled=rst.disabled=true;
+  line.style.borderColor=ok?"var(--ok)":"var(--bad)";line.style.borderStyle="solid";
+  fb.className="fb "+(ok?"ok":"no");fb.innerHTML=(ok?"✓ Richtig! ":`✗ Correct: <b>${x.w.join(" ")}</b>`)+` <button class="speak" style="font-size:1rem;margin:0">🔊</button>`;
+  fb.querySelector(".speak").onclick=()=>speak(x.w.join(" "));};}
+$("#finish").onclick=()=>{persist();const answered=Object.keys(results).length,right=Object.values(results).filter(Boolean).length,pct=Math.round(right/TOTAL*100);
+ $("#respct").textContent=`${right} / ${TOTAL} · ${pct}%`;
+ const st=pct>=90?3:pct>=70?2:pct>=40?1:0;$("#stars").textContent="★".repeat(st)+"☆".repeat(3-st);$("#stars").style.color="var(--gold)";
+ $("#resmsg").textContent=(answered<TOTAL?`You skipped ${TOTAL-answered} question(s). `:"")+(pct>=90?"Ausgezeichnet! You really know your der, die, das.":pct>=70?"Sehr gut! Check the endings you missed and try again.":pct>=40?"Gut gemacht! Re-read the cheat sheet (Step 4), then retry.":"Kein Problem! Articles take time. Read the notes once more and give it another go.");
+ $("#resout").style.display="block";$("#finish").style.display="none";};
+$("#retry").onclick=()=>{renderAll();window.scrollTo({top:0,behavior:"smooth"})};
+renderAll();refreshBest();
+
+/* ---------- flashcards ---------- */
+const DECK=[
+ ...N.map(x=>({cat:x[0],id:"n"+x[1],front:x[1],label:"Noun · der, die or das?",back:`<span class="g-${x[0]}">${x[0]} ${x[1]}</span>`,en:x[2],more:x[3]+(x[4]?" · "+x[4]:""),say:x[0]+" "+x[1]})),
+ ...ENDINGS.map(e=>({cat:"Endings",id:"e"+e[0],front:e[0],label:"Ending · which article?",back:`<span class="g-${e[1]}">${e[1]}</span>`,en:e[2],more:e[3],say:e[3]}))
+];
+const CATS=["All","der","die","das","Endings"];
+let cat="All",deck=DECK.slice(),idx=0;const known=new Set();
+$("#filters").innerHTML=CATS.map(c=>`<button class="${c==="All"?"on":""}" data-c="${c}">${c}</button>`).join("");
+$("#filters").querySelectorAll("button").forEach(b=>b.onclick=()=>{cat=b.dataset.c;$("#filters").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));deck=DECK.filter(d=>cat==="All"||d.cat===cat);idx=0;show()});
+function show(){const d=deck[idx];$("#fc").classList.remove("flipped");
+ setTimeout(()=>{$("#f-cat").textContent=d.label;$("#f-word").textContent=d.front;$("#f-word").className="word";
+  $("#b-word").innerHTML=d.back;$("#b-ex").innerHTML=`${d.en}<small>${d.more}</small>`;},120);
+ $("#counter").textContent=`${idx+1} / ${deck.length}`;
+ const k=deck.filter(c=>known.has(c.id)).length;$("#known").textContent=`✓ You know ${k} of ${deck.length} cards`;}
+const flip=()=>$("#fc").classList.toggle("flipped");
+$("#scene").onclick=e=>{if(!e.target.closest(".speak"))flip()};
+$("#f-speak").onclick=e=>{e.stopPropagation();speak(deck[idx].say)};
+$("#next").onclick=()=>{idx=(idx+1)%deck.length;show()};
+$("#prev").onclick=()=>{idx=(idx-1+deck.length)%deck.length;show()};
+$("#shuffle").onclick=()=>{deck=shuffleArr(deck);idx=0;show()};
+$("#k-yes").onclick=()=>{known.add(deck[idx].id);idx=(idx+1)%deck.length;show()};
+$("#k-no").onclick=()=>{known.delete(deck[idx].id);const c=deck.splice(idx,1)[0];deck.splice(Math.min(idx+3,deck.length),0,c);if(idx>=deck.length)idx=0;show()};
+document.addEventListener("keydown",e=>{if(!$("#cards").classList.contains("on")||e.target.tagName==="INPUT")return;
+ if(e.key===" "){e.preventDefault();flip()}else if(e.key==="ArrowRight")$("#next").click();else if(e.key==="ArrowLeft")$("#prev").click();});
+show();
+</script>
+</body>
+</html>

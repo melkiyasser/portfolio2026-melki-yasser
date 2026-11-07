@@ -49,6 +49,27 @@
         prepositions: ["aus", "in"],
         adjectives: []
       }
+    },
+    {
+      id: "lesson2",
+      level: "A1",
+      title: "Der, die or das? Nouns & articles",
+      desc: "Meet the three genders, a / an, the plural, and the endings that reveal a noun's article.",
+      topics: ["der / die / das", "ein / eine", "Plural = die", "Endings that give it away"],
+      exercises: [
+        { key: "s", name: "Übung 1 · Der, die or das?" },
+        { key: "m", name: "Übung 2 · Mystery words" },
+        { key: "f", name: "Übung 3 · Fill in the article" },
+        { key: "o", name: "Übung 4 · Odd one out" },
+        { key: "b", name: "Übung 5 · Build the sentence" },
+        { key: "q", name: "Übung 6 · Quick quiz" }
+      ],
+      vocab: {
+        verbs: ["sein"],
+        nouns: ["Baum", "Onkel", "Kollege", "Arzt", "Lehrer", "Nachbar", "Monitor", "Garten", "Mai", "Uhr", "Katze", "Kollegin", "Ärztin", "Studentin", "Wohnung", "Zeitung", "Übung", "Krankheit", "Bäckerei", "Buch", "Mädchen", "Brötchen", "Zentrum", "Dokument", "Semester"],
+        prepositions: [],
+        adjectives: ["groß", "klein", "teuer", "dick", "grün", "interessant", "schwer", "neu"]
+      }
     }
   ];
 
